@@ -242,3 +242,13 @@ All of the values available are here
   "groupId": "string" // Identifier for a widget group.
 }
 ```
+
+
+
+## have an existing API and want to turn it into a OpenBB backend?
+
+Highlight here what they need to do - its really the same - just think we should have this be an item
+
+just add a widgets.json - and point it towards your endpoints
+
+add the endpoint to hit widgets.json
