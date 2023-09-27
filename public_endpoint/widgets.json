@@ -1,14 +1,14 @@
 {
-  "DefiLlama": {
-    "searchCategory": "crypto",
+  "chains": {
     "name": "Chains",
     "description": "Get current TVL of all chains using Defi LLama",
     "category": "crypto",
+    "searchCategory": "crypto",
     "widgetType": "individual",
     "widgetId": "chains",
     "endpoint": "/chains",
     "gridData": {
-      "w": 40,
+      "w": 20,
       "h": 5
     },
     "data": {

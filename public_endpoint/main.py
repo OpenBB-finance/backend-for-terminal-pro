@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Routes
+## Endpoints
 @app.get("/")
 def read_root():
     return {"Info": "Backend Template for the OpenBB Terminal Pro"}
@@ -38,7 +38,7 @@ def get_widgets():
     return JSONResponse(content=data)
 
 @app.get("/chains")
-def get_player_list():
+def get_chains():
     """Get current TVL of all chains using Defi LLama"""
     params = {}
     response = requests.get("https://api.llama.fi/v2/chains", params=params)
