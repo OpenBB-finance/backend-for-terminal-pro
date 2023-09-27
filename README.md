@@ -96,7 +96,7 @@ widgets.json definitions
 
 TODO - organize this better
 
-```json
+```jsonc
 {
   // Basic props
   "id": "string", // Unique identifier for the widget.
