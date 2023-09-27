@@ -1,0 +1,37 @@
+{
+  "DefiLlama": {
+    "searchCategory": "crypto",
+    "name": "Chains",
+    "description": "Get current TVL of all chains using Defi LLama",
+    "category": "crypto",
+    "widgetType": "individual",
+    "widgetId": "chains",
+    "endpoint": "/chains",
+    "gridData": {
+      "w": 40,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "name",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Name",
+            "field": "name",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Total Value Locked",
+            "field": "tvl"
+          },
+          {
+            "headerName": "Token Symbol",
+            "field": "tokenSymbol",
+            "chartDataType": "category"
+          }
+        ]
+      }
+    }
+  }
+}
