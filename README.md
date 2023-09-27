@@ -1,8 +1,12 @@
 # Backend template for the OpenBB Terminal Pro
 
-Backend template to bring your own data into the OpenBB Terminal Pro using FastAPI.
+Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets.
+Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to.
+While this repository is an example using Python FastAPI - this same structure can be used to achieve any language-agnostic approach.
 
-Data returned should be in json non-nested format.
+The Main tenants are :
+
+1. Data returned should be in json non-nested format.
 
 Example :
 
@@ -15,13 +19,13 @@ Example :
 	{
 		"color": "green",
 		"value": "#0f0"
-	},
-	{
-		"color": "blue",
-		"value": "#00f"
-	}
+	}...
 ]
 ```
+
+2. Ensure that you have a well-structured ```widgets.json``` file. This file defines widget properties such as name, description, category, type, endpoint, and other information needed. Each widget needs to be defined in this file – You can find the format in any of the templates folder with a detailed definition below.
+
+3. API - If hosting locally you must enable CORS and have an endpoint available that will return the ```widgets.json``` file.
 
 ## Templates available
 
@@ -94,7 +98,7 @@ Each widget will have the following properties:
 
 widgets.json definitions
 
-TODO - organize this better
+All of the values available are here
 
 ```jsonc
 {
