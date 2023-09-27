@@ -1,0 +1,25 @@
+{
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "price": 150.5,
+      "marketCap": 2500000000,
+      "change": 1.25
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "price": 2800.75,
+      "marketCap": 1900000000,
+      "change": -0.75
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "price": 300.25,
+      "marketCap": 220000000,
+      "change": 0.98
+    }
+  ]
+}

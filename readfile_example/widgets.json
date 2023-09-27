@@ -1,0 +1,94 @@
+{
+  "csvData": {
+    "name": "CSV Mock Data",
+    "description": "Mock CSV Stock Data for OpenBB",
+    "category": "stocks",
+    "searchCategory": "stocks",
+    "widgetType": "individual",
+    "widgetId": "csvStockMock",
+    "endpoint": "/csv-data",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "ticker",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Ticker",
+            "field": "ticker",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Name",
+            "field": "name",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Price",
+            "field": "price",
+            "chartDataType": "series"
+          },
+          {
+            "headerName": "Market Cap",
+            "field": "marketCap",
+            "chartDataType": "series"
+          },
+          {
+            "headerName": "Change",
+            "field": "change",
+            "chartDataType": "series"
+          }
+        ]
+      }
+    }
+  },
+  "jsonData": {
+    "name": "Json Mock Data",
+    "description": "Mock json Stock Data for OpenBB",
+    "category": "stocks",
+    "searchCategory": "stocks",
+    "widgetType": "individual",
+    "widgetId": "jsonStockMock",
+    "endpoint": "/json-data",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "ticker",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Ticker",
+            "field": "ticker",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Name",
+            "field": "name",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Price",
+            "field": "price",
+            "chartDataType": "series"
+          },
+          {
+            "headerName": "Market Cap",
+            "field": "marketCap",
+            "chartDataType": "series"
+          },
+          {
+            "headerName": "Change",
+            "field": "change",
+            "chartDataType": "series"
+          }
+        ]
+      }
+    }
+  }
+}
