@@ -1,0 +1,21 @@
+{
+  "snowflake": {
+    "name": "snowflake",
+    "description": "Get current TVL of all chains using Defi LLama",
+    "category": "crypto",
+    "searchCategory": "crypto",
+    "widgetType": "individual",
+    "widgetId": "snowflake",
+    "endpoint": "/snowflake",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "name",
+        "showAll": true
+      }
+    }
+  }
+}
