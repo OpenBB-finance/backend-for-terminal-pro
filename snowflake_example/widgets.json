@@ -1,20 +1,33 @@
 {
   "snowflake": {
-    "name": "snowflake",
-    "description": "Get current TVL of all chains using Defi LLama",
-    "category": "crypto",
-    "searchCategory": "crypto",
+    "name": "Severe Weather Days in Florida",
+    "description": "Determine how many tornados, waterspouts, or funnel clouds were recorded in Florida each year since 2010",
+    "category": "economy",
+    "searchCategory": "economy",
     "widgetType": "individual",
-    "widgetId": "snowflake",
-    "endpoint": "/snowflake",
+    "widgetId": "cybersyn_severe_weather_days_in_florida",
+    "endpoint": "/cybersyn_severe_weather_days_in_florida",
     "gridData": {
       "w": 20,
       "h": 5
     },
     "data": {
       "table": {
-        "index": "name",
-        "showAll": true
+        "index": "Year",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Year",
+            "field": "YEAR",
+            "chartDataType": "time",
+            "cellDataType": "date"
+          },
+          {
+            "headerName": "Severe weather days",
+            "field": "COUNT_SEVERE_WEATHER_DAYS",
+            "formatterFn": "int"
+          }
+        ]
       }
     }
   }
