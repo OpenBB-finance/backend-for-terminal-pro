@@ -29,6 +29,7 @@ app.add_middleware(
 def read_root():
     return {"Info": "Backend Template for the OpenBB Terminal Pro"}
 
+
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
@@ -36,6 +37,7 @@ def get_widgets():
     with open(file_path, "r") as file:
         data = json.load(file)
     return JSONResponse(content=data)
+
 
 @app.get("/chains")
 def get_chains():
@@ -45,8 +47,9 @@ def get_chains():
 
     if response.status_code == 200:
         return response.json()
-    
-    # Handle error cases here
-    print(f"Something went wrong with the request : Error {response.status_code}: {response.text}")
-    return None
 
+    # Handle error cases here
+    print(
+        f"Something went wrong with the request : Error {response.status_code}: {response.text}"
+    )
+    return None

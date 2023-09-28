@@ -1,12 +1,12 @@
 {
-  "clickhouse": {
+  "click": {
     "name": "Clickhouse Data",
     "description": "Getting some random clickhouse data",
     "category": "economy",
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "clickhouse-data",
-    "endpoint": "/clickhouse",
+    "endpoint": "/click",
     "gridData": {
       "w": 20,
       "h": 5

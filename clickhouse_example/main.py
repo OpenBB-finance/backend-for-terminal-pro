@@ -8,10 +8,10 @@ import time
 import clickhouse_connect
 
 client = clickhouse_connect.get_client(
-    host="",
+    host="dwx24ma09h.us-east-1.aws.clickhouse.cloud",
     port=8443,
-    username="",
-    password="",
+    username="default",
+    password="OOP6w.JJKGRC4",
 )
 
 from fastapi import FastAPI
@@ -23,7 +23,7 @@ app = FastAPI()
 
 ### Configure CORS
 origins = [
-    "http://localhost:1420",
+    "http://localhost",
     "http://localhost:5050",
     "http://localhost:5051",
     "https://pro.openbb.dev",
@@ -52,13 +52,13 @@ def get_widgets():
     return JSONResponse(content=data)
 
 
-@app.get("/clickhouse")
+@app.get("/click")
 def clickhouse():
     """Return clickhouse data"""
 
     results = client.query_df('SELECT * FROM "nyc_taxi" LIMIT 31')
     # convery df to json
     results_json = results.to_json(orient="records")
-    results_dict = json.loads(results_json)
+    json_obj = json.loads(results_json)
 
-    return results_dict
+    return json_obj
