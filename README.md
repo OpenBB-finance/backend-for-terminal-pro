@@ -30,30 +30,11 @@ Example :
 
 Each folder contains an example of a different implementation, the goal is to increase the amount of different use cases so that each customer can start from the one that is most relevant.
 
-<details>
-  <summary><strong>public_endpoint</strong></summary></br>
-	
-  This utilizes data from https://api.llama.fi/v2/chain without any modification. This could have been added to the Terminal Pro directly using the "Add Single Widget" functionality - but using the widgets.json file we have more control over the widget.
-</details>
 
-<details>
-  <summary><strong>plotly_example</strong></summary></br>
-	
-  Useful if you want to visualize the data in a unique way that isn't in our charting abilities.
-</details>
-
-<details>
-  <summary><strong>endpoint with API key</strong></summary></br>
-	
-  tbd
-</details>
-
-<details>
-  <summary><strong>readfile_example: process csv or json file</strong></summary></br>
-	
-  Example of reading some local file from your computer in csv or json format.
-</details>
-
+* [Public endpoint](/public_endpoint/README.md)
+* [Plotly from public endpoint](/plotly_example/README.md)
+* [Read file example](/readfile_example/README.md)
+* [Snowflake example](/snowflake_example/README.md)
 
 
 ## How to run
