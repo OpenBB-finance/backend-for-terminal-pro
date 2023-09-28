@@ -1,12 +1,10 @@
 # Backend template for the OpenBB Terminal Pro
 
-Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets.
-Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to.
-While this repository is an example using Python FastAPI - this same structure can be used to achieve any language-agnostic approach.
+Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to. While this repository is an example using Python FastAPI - this same structure can be used to achieve any language-agnostic approach.
 
-The Main tenants are :
+The Main tenants are:
 
-1. Data returned should be in json non-nested format.
+1. Data returned should be in JSON non-nested format.
 
 Example :
 
@@ -27,34 +25,43 @@ Example :
 
 3. API - If hosting locally you must enable CORS and have an endpoint available that will return the ```widgets.json``` file.
 
+
 ## Templates available
 
 Each folder contains an example of a different implementation, the goal is to increase the amount of different use cases so that each customer can start from the one that is most relevant.
 
-#### public_endpoint
+<details>
+  <summary><strong>public_endpoint</strong></summary></br>
+	
+  This utilizes data from https://api.llama.fi/v2/chain without any modification. This could have been added to the Terminal Pro directly using the "Add Single Widget" functionality - but using the widgets.json file we have more control over the widget.
+</details>
 
-This utilizes data from https://api.llama.fi/v2/chain without any modification. This could have been added to the Terminal Pro directly using the "Add Single Widget" functionality - but using the widgets.json file we have more control over the widget.
+<details>
+  <summary><strong>plotly_example</strong></summary></br>
+	
+  Useful if you want to visualize the data in a unique way that isn't in our charting abilities.
+</details>
 
-TBD: Add image of widget to be added.
+<details>
+  <summary><strong>endpoint with API key</strong></summary></br>
+	
+  tbd
+</details>
 
-#### endpoint with API key
+<details>
+  <summary><strong>readfile_example: process csv or json file</strong></summary></br>
+	
+  Example of reading some local file from your computer in csv or json format.
+</details>
 
-tbd
 
-####  readfile_example : process csv or json file
-
-Example of reading some local file from your computer in csv or json format.
-
-#### plotly_example : render plotly chart in a widget
-
-Useful if you want to visualize the data in a unique way that isn't in our charting abilities.
 
 ## How to run
 
 1. Go into the folder you want to test
 2. Run `uvicorn main:app --port 5050`
 
-(add image of what it looks in console)
+(add an image of what it looks like in the console)
 
 3. Add steps for Data Connectors in the Terminal Pro
 
@@ -64,11 +71,11 @@ Useful if you want to visualize the data in a unique way that isn't in our chart
 
 ### main.py
 
-This is responsible by running the FastAPI with endpoints that will be consumed by the Terminal Pro.
+This is responsible for running the FastAPI with endpoints that will be consumed by the Terminal Pro.
 
 This file:
 
-* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and Terminal Pro link.
+* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Terminal Pro link.
 
 * Initializes FastAPI with `app = FastAPI()`
 
@@ -244,11 +251,10 @@ All of the values available are here
 ```
 
 
+## Have an existing API and want to turn it into an OpenBB backend?
 
-## have an existing API and want to turn it into a OpenBB backend?
+Highlight here what they need to do - it is really the same - just think we should have this be an item
 
-Highlight here what they need to do - its really the same - just think we should have this be an item
-
-just add a widgets.json - and point it towards your endpoints
+just add a widgets.json - and point it toward your endpoints
 
 add the endpoint to hit widgets.json
