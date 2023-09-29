@@ -26,6 +26,18 @@ Example :
 3. API - If hosting locally you must enable CORS and have an endpoint available that will return the ```widgets.json``` file.
 
 
+## Supported Integrations
+
+| Integration | Description | Supported |
+| ----------- | ----------- | --------- |
+| Elastic | Elasticsearch is a search engine based on the Lucene library. | ✅ |
+| Clickhouse | ClickHouse is an open-source column-oriented DBMS. | ✅ |
+| MindsDB | MindsDB is an open-source AI layer for existing databases. | ✅ |
+| Snowflake | Snowflake is a cloud-based data warehousing platform. | ✅ |
+| Readfile | This integration allows reading data directly from a file. | ✅ |
+| Public | This integration allows fetching data from public APIs. | ✅ |
+| Plotly | Plotly is a Python graphing library for interactive graphs. | ✅ |
+
 ## Templates available
 
 Each folder contains an example of a different implementation, the goal is to increase the amount of different use cases so that each customer can start from the one that is most relevant.
