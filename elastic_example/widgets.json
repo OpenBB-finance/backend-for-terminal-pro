@@ -1,0 +1,21 @@
+{
+  "elastic": {
+    "name": "Elastic example",
+    "description": "Elastic example bulk documents",
+    "category": "economy",
+    "searchCategory": "economy",
+    "widgetType": "individual",
+    "widgetId": "elastic_example",
+    "endpoint": "/elastic_example",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "name",
+        "showAll": true
+      }
+    }
+  }
+}
