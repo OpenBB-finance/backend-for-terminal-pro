@@ -8,10 +8,10 @@ import time
 import clickhouse_connect
 
 client = clickhouse_connect.get_client(
-    host="dwx24ma09h.us-east-1.aws.clickhouse.cloud",
+    host="",
     port=8443,
     username="default",
-    password="OOP6w.JJKGRC4",
+    password="",
 )
 
 from fastapi import FastAPI
@@ -57,6 +57,25 @@ def clickhouse():
     """Return clickhouse data"""
 
     results = client.query_df('SELECT * FROM "nyc_taxi" LIMIT 31')
+    # convery df to json
+    results_json = results.to_json(orient="records")
+    json_obj = json.loads(results_json)
+
+    return json_obj
+
+@app.get("/avg_price_per_year_london")
+def avg_price_per_year_london():
+    """Return clickhouse data"""
+
+    results = client.query_df(
+"""SELECT
+   toYear(date) AS year,
+   round(avg(price)) AS price
+FROM uk_price_paid
+WHERE town = 'LONDON'
+GROUP BY year
+ORDER BY year
+""")
     # convery df to json
     results_json = results.to_json(orient="records")
     json_obj = json.loads(results_json)
