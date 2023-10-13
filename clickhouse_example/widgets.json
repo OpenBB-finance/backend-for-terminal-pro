@@ -1,5 +1,5 @@
 {
-  "click": {
+  "clickhouse-data": {
     "name": "Clickhouse Data",
     "description": "Getting some random clickhouse data",
     "category": "economy",
