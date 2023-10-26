@@ -26,28 +26,19 @@ Example :
 3. API - If hosting locally you must enable CORS and have an endpoint available that will return the ```widgets.json``` file.
 
 
-## Supported Integrations
+## Supported Integrations and Templates
+
+Each Integration below has its own folder which contains an example of a different implementation.
 
 | Integration | Description | Supported |
 | ----------- | ----------- | --------- |
 | Elastic | Elasticsearch is a search engine based on the Lucene library. | ✅ |
 | Clickhouse | ClickHouse is an open-source column-oriented DBMS. | ✅ |
 | MindsDB | MindsDB is an open-source AI layer for existing databases. | ✅ |
-| Snowflake | Snowflake is a cloud-based data warehousing platform. | ✅ |
-| Readfile | This integration allows reading data directly from a file. | ✅ |
-| Public | This integration allows fetching data from public APIs. | ✅ |
-| Plotly | Plotly is a Python graphing library for interactive graphs. | ✅ |
-
-## Templates available
-
-Each folder contains an example of a different implementation, the goal is to increase the amount of different use cases so that each customer can start from the one that is most relevant.
-
-
-* [Public endpoint](/public_endpoint/README.md)
-* [Plotly from public endpoint](/plotly_example/README.md)
-* [Read file example](/readfile_example/README.md)
-* [Snowflake example](/snowflake_example/README.md)
-
+| [Snowflake](/snowflake_example/README.md) | Snowflake is a cloud-based data warehousing platform. | ✅ |
+| [Readfile](/readfile_example/README.md) | This integration allows reading data directly from a file. | ✅ |
+| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. | ✅ |
+| [Plotly](/plotly_example/README.md) | Plotly is a Python graphing library for interactive graphs. | ✅ |
 
 ## How to run
 
