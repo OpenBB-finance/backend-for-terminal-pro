@@ -237,8 +237,16 @@ All of the values available are here
 
 ## Have an existing API and want to turn it into an OpenBB backend?
 
-Highlight here what they need to do - it is really the same - just think we should have this be an item
+Your existing backend could be very easily turned into a API that can be read by OpenBB Pro with a few simple steps.
 
-just add a widgets.json - and point it toward your endpoints
+### Step 1
 
-add the endpoint to hit widgets.json
+Add a widgets.json endpoint and configure the file accordingly (pointed to your endpoints, following our data structure, etc)
+
+### Step 2 (optional)
+
+Enable CORS - This step is only needed if you have a localhost version of your API running.
+
+### Step 3
+
+Add your backend to Pro following the same convention as described before.
