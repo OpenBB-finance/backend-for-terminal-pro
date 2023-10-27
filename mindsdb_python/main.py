@@ -1,23 +1,18 @@
-import os
 import json
-import requests
-import time
-import json
-
-import mindsdb_sdk
-
-
-server = mindsdb_sdk.connect(login='xxx', password='xxxx')
-
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
+import mindsdb_sdk
+
+server = mindsdb_sdk.connect(
+    login="",
+    password="",
+)
 
 app = FastAPI()
 
-### Configure CORS
 origins = [
     "http://localhost",
     "http://localhost:5050",
@@ -35,14 +30,14 @@ app.add_middleware(
 ## Endpoints
 @app.get("/")
 def read_root():
-    return {"Info": "Backend Template for the OpenBB Terminal Pro"}
+    return {"Info": "MindsDB backend template for the OpenBB Terminal Pro"}
 
 
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         data = json.load(file)
     return JSONResponse(content=data)
 
