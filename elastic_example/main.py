@@ -42,7 +42,7 @@ def read_root():
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return JSONResponse(content=data)
 
@@ -52,23 +52,108 @@ def elastic_example():
     """Return snowflake data"""
 
     try:
+        # Example of data ingestion 
         documents = [
-            { "index": { "_index": "search-spiderman", "_id": "9780553351927"}},
-            {"name": "Snow Crash", "author": "Neal Stephenson", "release_date": "1992-06-01", "page_count": 470, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
-            { "index": { "_index": "search-spiderman", "_id": "9780441017225"}},
-            {"name": "Revelation Space", "author": "Alastair Reynolds", "release_date": "2000-03-15", "page_count": 585, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
-            { "index": { "_index": "search-spiderman", "_id": "9780451524935"}},
-            {"name": "1984", "author": "George Orwell", "release_date": "1985-06-01", "page_count": 328, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
-            { "index": { "_index": "search-spiderman", "_id": "9781451673319"}},
-            {"name": "Fahrenheit 451", "author": "Ray Bradbury", "release_date": "1953-10-15", "page_count": 227, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
-            { "index": { "_index": "search-spiderman", "_id": "9780060850524"}},
-            {"name": "Brave New World", "author": "Aldous Huxley", "release_date": "1932-06-01", "page_count": 268, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
-            { "index": { "_index": "search-spiderman", "_id": "9780385490818"}},
-            {"name": "The Handmaid's Tale", "author": "Margaret Atwood", "release_date": "1985-06-01", "page_count": 311, "_extract_binary_content": True, "_reduce_whitespace": True, "_run_ml_inference": True},
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9780553351927"
+                }
+            },
+            {
+                "name": "Snow Crash",
+                "author": "Neal Stephenson",
+                "release_date": "1992-06-01",
+                "page_count": 470,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            },
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9780441017225"
+                }
+            },
+            {
+                "name": "Revelation Space",
+                "author": "Alastair Reynolds",
+                "release_date": "2000-03-15",
+                "page_count": 585,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            },
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9780451524935"
+                }
+            },
+            {
+                "name": "1984",
+                "author": "George Orwell",
+                "release_date": "1985-06-01",
+                "page_count": 328,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            },
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9781451673319"
+                }
+            },
+            {
+                "name": "Fahrenheit 451",
+                "author": "Ray Bradbury",
+                "release_date": "1953-10-15",
+                "page_count": 227,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            },
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9780060850524"
+                }
+            },
+            {
+                "name": "Brave New World",
+                "author": "Aldous Huxley",
+                "release_date": "1932-06-01",
+                "page_count": 268,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            },
+            {
+                "index": {
+                    "_index": "search-spiderman",
+                    "_id": "9780385490818"
+                }
+            },
+            {
+                "name": "The Handmaid's Tale",
+                "author": "Margaret Atwood",
+                "release_date": "1985-06-01",
+                "page_count": 311,
+                "_extract_binary_content": True,
+                "_reduce_whitespace": True,
+                "_run_ml_inference": True
+            }
         ]
-        client.bulk(operations=documents, pipeline="ent-search-generic-ingestion")
+        client.bulk(
+            operations=documents,
+            pipeline="ent-search-generic-ingestion"
+        )
 
-        res = client.search(index="search-spiderman", q="*")
+        res = client.search(
+            index="search-spiderman",
+            q="*"
+        )
 
         json_data = list()
         for v in res.body["hits"]["hits"]:
