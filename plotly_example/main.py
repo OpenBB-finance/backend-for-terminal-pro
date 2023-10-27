@@ -9,6 +9,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
+    "http://localhost:1420",
     "http://localhost:5050",
     "https://pro.openbb.dev",
 ]
@@ -21,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Endpoints
+
 @app.get("/")
 def read_root():
     return {"Info": "Plotly example for the OpenBB Terminal Pro"}
@@ -35,7 +36,7 @@ def get_widgets():
         data = json.load(file)
     return JSONResponse(content=data)
 
-# Return a plotly json
+
 @app.get("/chains")
 def get_chains():
     """Get current TVL of all chains using Defi LLama"""

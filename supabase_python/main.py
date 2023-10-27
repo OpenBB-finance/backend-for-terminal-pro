@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Endpoints
+
 @app.get("/")
 def read_root():
     return {"Info": "Supabase backend template for the OpenBB Terminal Pro"}

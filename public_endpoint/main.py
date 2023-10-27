@@ -9,6 +9,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
+    "http://localhost:1420",
     "http://localhost:5050",
     "https://pro.openbb.dev",
 ]
@@ -20,6 +21,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/")
 def read_root():

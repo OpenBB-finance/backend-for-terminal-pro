@@ -15,6 +15,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
+    "http://localhost:1420",
     "http://localhost:5050",
     "https://pro.openbb.dev",
 ]
@@ -27,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Endpoints
+
 @app.get("/")
 def read_root():
     return {"Info": "MindsDB backend template for the OpenBB Terminal Pro"}

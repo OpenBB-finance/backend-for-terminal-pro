@@ -1,4 +1,3 @@
-import os
 import json
 import csv
 
@@ -6,11 +5,11 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
 origins = [
     "http://localhost",
+    "http://localhost:1420",
     "http://localhost:5050",
     "https://pro.openbb.dev",
 ]
@@ -23,20 +22,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Endpoints
+
 @app.get("/")
 def read_root():
-    return {"Info": "Backend Template for the OpenBB Terminal Pro"}
+    return {"Info": "Read file example for the OpenBB Terminal Pro"}
 
 
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         data = json.load(file)
     return JSONResponse(content=data)
-
 
 @app.get("/json-data")
 def json_data():
@@ -46,7 +44,7 @@ def json_data():
 
     try:
         # Open the JSON file for reading
-        with open(json_file_path, mode="r") as json_file:
+        with open(json_file_path, mode="r", encoding='utf-8') as json_file:
             # Load the JSON data
             chains_data = json.load(json_file)
 
@@ -55,12 +53,10 @@ def json_data():
 
     except Exception as e:
         # Handle error cases here
-        error_message = f"Something went wrong with reading the JSON file: {str(e)}"
-        print(error_message)
+        error_message = f"Error reading the JSON file: {str(e)}"
         return {"error": error_message}
 
 
-# Reading CSV File
 @app.get("/csv-data")
 def csv_data():
     """Read mock csv data and return it as a table to your widget"""
@@ -69,7 +65,7 @@ def csv_data():
 
     try:
         # Open the CSV file for reading
-        with open(csv_file_path, mode="r") as csv_file:
+        with open(csv_file_path, mode="r", encoding='utf-8') as csv_file:
             # Create a CSV reader
             csv_reader = csv.DictReader(csv_file)
 
@@ -86,6 +82,5 @@ def csv_data():
 
     except Exception as e:
         # Handle error cases here
-        error_message = f"Something went wrong with reading the CSV file: {str(e)}"
-        print(error_message)
+        error_message = f"Error reading the CSV file: {str(e)}"
         return {"error": error_message}
