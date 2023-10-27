@@ -6,8 +6,6 @@ import json
 
 import mindsdb_sdk
 
-# https://mindsdb.com/blog/introduction-to-python-sdk-interact-with-mindsdb-directly-from-python
-
 
 server = mindsdb_sdk.connect(login='xxx', password='xxxx')
 
