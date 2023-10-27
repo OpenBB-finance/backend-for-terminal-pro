@@ -31,9 +31,9 @@ By default, the port and username should be `8443` and `"default"`.
 
 The password is the one associated with your ClickHouse account.
 
-The host can be found by going into ClickHouse Services, thhen clicking on the "Connect" dropdown and selecting "View connection string".
+The host can be found by going into ClickHouse Services, thhen clicking on the **Connect** dropdown and selecting **View connection string**.
 
-There you'll see a "Native" tab with the following
+There you'll see a **Native** tab with the following
 
 ```console
 ./clickhouse client --host abc123de45.us-east-1.aws.clickhouse.cloud --secure --password
