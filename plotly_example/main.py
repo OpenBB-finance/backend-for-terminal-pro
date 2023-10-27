@@ -1,4 +1,3 @@
-import os
 import json
 import requests
 import plotly.express as px
@@ -8,13 +7,12 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
-### Configure CORS
 origins = [
     "http://localhost",
     "http://localhost:1420",
+    "http://localhost:5050",
     "https://pro.openbb.dev",
 ]
 
@@ -26,22 +24,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## Endpoints
+
 @app.get("/")
 def read_root():
-    return {"Info": "Backend Template for the OpenBB Terminal Pro"}
+    return {"Info": "Plotly example for the OpenBB Terminal Pro"}
 
 
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         data = json.load(file)
     return JSONResponse(content=data)
 
 
-## Example of return a plotly to json and having that work
 @app.get("/chains")
 def get_chains():
     """Get current TVL of all chains using Defi LLama"""
@@ -67,8 +64,7 @@ def get_chains():
 
     # return the plotly json
 
-    # Handle error cases here
     print(
-        f"Something went wrong with the request : Error {response.status_code}: {response.text}"
+        f"Request error {response.status_code}: {response.text}"
     )
     return None
