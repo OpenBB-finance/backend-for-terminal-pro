@@ -1,23 +1,4 @@
 {
-  "clickhouse-data": {
-    "name": "Clickhouse Data",
-    "description": "Getting some random clickhouse data",
-    "category": "economy",
-    "searchCategory": "economy",
-    "widgetType": "individual",
-    "widgetId": "clickhouse-data",
-    "endpoint": "/click",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "index": "trip_id",
-        "showAll": true
-      }
-    }
-  },
   "avg_price_per_year_london": {
     "name": "Average house price per year in London",
     "description": "Average house price per year in London",
