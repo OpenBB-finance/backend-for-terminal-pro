@@ -47,7 +47,7 @@ def read_root():
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         data = json.load(file)
     return JSONResponse(content=data)
 
