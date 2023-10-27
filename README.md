@@ -17,7 +17,7 @@ Example :
 	{
 		"color": "green",
 		"value": "#0f0"
-	}...
+	}
 ]
 ```
 
@@ -28,7 +28,7 @@ Example :
 
 ## Supported Integrations and Templates
 
-Each Integration below has its own folder which contains an example of a different implementation.
+Each Integration below has its folder which contains an example of a different implementation.
 
 | Integration | Description | Supported |
 | ----------- | ----------- | --------- |
