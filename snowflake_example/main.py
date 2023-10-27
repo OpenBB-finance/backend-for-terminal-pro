@@ -36,7 +36,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-### Configure CORS
 origins = [
     "http://localhost",
     "http://localhost:5050",

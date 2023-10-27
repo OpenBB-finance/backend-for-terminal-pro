@@ -15,7 +15,6 @@ client = clickhouse_connect.get_client(
 
 app = FastAPI()
 
-### Configure CORS
 origins = [
     "http://localhost",
     "http://localhost:5050",
