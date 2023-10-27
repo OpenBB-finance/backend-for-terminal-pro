@@ -1,6 +1,10 @@
-# Backend template for the OpenBB Terminal Pro
+# Backend examples for the OpenBB Terminal Pro
 
-Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to. While this repository is an example using Python FastAPI - this same structure can be used to achieve any language-agnostic approach.
+## Introduction
+
+Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to. 
+
+Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
 
 The Main tenants are:
 
@@ -30,20 +34,24 @@ Example :
 
 Each Integration below has its folder which contains an example of a different implementation.
 
-| Integration | Description | Supported |
-| ----------- | ----------- | --------- |
-| Elastic | Elasticsearch is a search engine based on the Lucene library. | ✅ |
-| Clickhouse | ClickHouse is an open-source column-oriented DBMS. | ✅ |
-| MindsDB | MindsDB is an open-source AI layer for existing databases. | ✅ |
-| [Snowflake](/snowflake_example/README.md) | Snowflake is a cloud-based data warehousing platform. | ✅ |
-| [Readfile](/readfile_example/README.md) | This integration allows reading data directly from a file. | ✅ |
-| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. | ✅ |
-| [Plotly](/plotly_example/README.md) | Plotly is a Python graphing library for interactive graphs. | ✅ |
+| Integration | Description |
+| ----------- | ----------- |
+| [Snowflake](/snowflake_python/README.md) | Snowflake is a cloud-based data warehousing platform. |
+| [ClickHouse](/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
+| [Supabase](/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
+| [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
+| [ElasticSearch](/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
+| [Readfile](/readfile_example/README.md) | This integration allows reading data directly from a file. |
+| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. |
+| [Plotly](/plotly_example/README.md) | Plotly is a Python graphing library for interactive graphs. |
 
-## How to run
+## Getting Started
 
 1. Go into the folder you want to test
-2. Run `uvicorn main:app --port 5050`
+
+2. Read the README.md file with instructions
+
+3. Run `uvicorn main:app --port 5050`
 
 (add an image of what it looks like in the console)
 
@@ -84,12 +92,6 @@ This contains the settings for all the widgets that the backend contains.
 This file is a dictionary, and each dictionary within represents a widget.
 
 Each widget will have the following properties:
-
-# Widget Type Definition
-
-widgets.json definitions
-
-All of the values available are here
 
 ```jsonc
 {
@@ -233,20 +235,3 @@ All of the values available are here
   "groupId": "string" // Identifier for a widget group.
 }
 ```
-
-
-## Have an existing API and want to turn it into an OpenBB backend?
-
-Your existing backend could be very easily turned into a API that can be read by OpenBB Pro with a few simple steps.
-
-### Step 1
-
-Add a widgets.json endpoint and configure the file accordingly (pointed to your endpoints, following our data structure, etc)
-
-### Step 2 (optional)
-
-Enable CORS - This step is only needed if you have a localhost version of your API running.
-
-### Step 3
-
-Add your backend to Pro following the same convention as described before.
