@@ -1,7 +1,8 @@
-import os
 import json
-import requests
-import time
+
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from elasticsearch import Elasticsearch
 
@@ -9,11 +10,6 @@ client = Elasticsearch(
   "",
   api_key=""
 )
-
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
-
 
 app = FastAPI()
 
@@ -35,7 +31,7 @@ app.add_middleware(
 ## Endpoints
 @app.get("/")
 def read_root():
-    return {"Info": "Backend Template for the OpenBB Terminal Pro"}
+    return {"Info": "ElasticSearch backend template for the OpenBB Terminal Pro"}
 
 
 @app.get("/widgets.json")
@@ -52,7 +48,7 @@ def elastic_example():
     """Return snowflake data"""
 
     try:
-        # Example of data ingestion 
+        # Example of data ingestion
         documents = [
             {
                 "index": {
