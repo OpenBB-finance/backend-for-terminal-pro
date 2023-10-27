@@ -6,7 +6,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "elastic_example",
-    "endpoint": "/elastic_example",
+    "endpoint": "elastic_example",
     "gridData": {
       "w": 20,
       "h": 5

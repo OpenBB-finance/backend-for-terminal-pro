@@ -12,7 +12,7 @@ app = FastAPI()
 ### Configure CORS
 origins = [
     "http://localhost",
-    "http://localhost:5050",
+    "http://localhost:1420",
     "https://pro.openbb.dev",
 ]
 

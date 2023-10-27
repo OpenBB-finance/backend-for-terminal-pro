@@ -141,6 +141,7 @@ All of the values available are here
       }
     }
   },
+  "defaultViz" : "table", // Default visualization for the widget. Can be one of table or chart (default : table)
   "external": false, // Indicates if the widget is external, i.e., if data is loaded from outside OpenBB API.
   "name": "string", // Name of the widget in the list the user sees. Displayed on top left of widget.
   "type": "string", // Main widget type (chart, table, note, custom).
@@ -179,6 +180,7 @@ All of the values available are here
       "columnState": {
         "key": "value"
       },
+      "enableCharts": true, // Allow charting to work from the widget table (default: true)
       "mode": "string", // Display mode for the table (light, dark).
       "density": "string", // Density mode for the table (compact, default).
       "transpose": true, // Indicates if the table should be transposed.

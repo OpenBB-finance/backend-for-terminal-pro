@@ -6,7 +6,7 @@
     "searchCategory": "stocks",
     "widgetType": "individual",
     "widgetId": "csvStockMock",
-    "endpoint": "/csv-data",
+    "endpoint": "csv-data",
     "gridData": {
       "w": 20,
       "h": 5
@@ -52,7 +52,7 @@
     "searchCategory": "stocks",
     "widgetType": "individual",
     "widgetId": "jsonStockMock",
-    "endpoint": "/json-data",
+    "endpoint": "json-data",
     "gridData": {
       "w": 20,
       "h": 5

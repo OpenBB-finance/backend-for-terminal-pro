@@ -1,6 +1,8 @@
 import os
 import json
 import requests
+import plotly.express as px
+import pandas as pd
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
@@ -12,7 +14,7 @@ app = FastAPI()
 ### Configure CORS
 origins = [
     "http://localhost",
-    "http://localhost:5050",
+    "http://localhost:1420",
     "https://pro.openbb.dev",
 ]
 
@@ -47,7 +49,23 @@ def get_chains():
     response = requests.get("https://api.llama.fi/v2/chains", params=params)
 
     if response.status_code == 200:
-        return response.json()
+
+        # Create a DataFrame from the JSON data
+        df = pd.DataFrame(response.json())
+
+        # Create a bar chart using Plotly Express
+        fig = px.bar(df, x="tokenSymbol", y="tvl", title="TVL of Tokens")
+        fig.update_layout(
+            margin={
+                "b": 80,
+            }
+        )
+        fig.update_yaxes(title="TVL")
+        figure_dict = fig.to_json()
+        figure_json = json.loads(figure_dict)
+        return figure_json
+
+    # return the plotly json
 
     # Handle error cases here
     print(

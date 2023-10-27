@@ -6,6 +6,7 @@
     "searchCategory": "crypto",
     "widgetType": "individual",
     "widgetId": "chains",
+    "defaultViz": "chart",
     "endpoint": "/chains",
     "gridData": {
       "w": 20,

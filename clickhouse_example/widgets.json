@@ -6,7 +6,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "clickhouse-data",
-    "endpoint": "/click",
+    "endpoint": "click",
     "gridData": {
       "w": 20,
       "h": 5
@@ -25,7 +25,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "avg_price_per_year_london",
-    "endpoint": "/avg_price_per_year_london",
+    "endpoint": "avg_price_per_year_london",
     "gridData": {
       "w": 20,
       "h": 5

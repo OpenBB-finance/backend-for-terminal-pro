@@ -6,7 +6,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "home_rentals_prediction",
-    "endpoint": "/home_rentals_prediction",
+    "endpoint": "home_rentals_prediction",
     "gridData": {
       "w": 20,
       "h": 5
