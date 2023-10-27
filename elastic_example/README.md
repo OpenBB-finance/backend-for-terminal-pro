@@ -11,8 +11,8 @@ You will need to identify the following from your ElasticSearch account
 
 ```python
 client = Elasticsearch(
-  "",
-  api_key=""
+  "XYZ",
+  api_key="XYZ"
 )
 ```
 

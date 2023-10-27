@@ -11,8 +11,8 @@ You will need to identify the following from your MindsDB account
 
 ```python
 server = mindsdb_sdk.connect(
-    login='xxx',
-    password='xxxx'
+    login='XYZ',
+    password='XYZ'
 )
 ```
 

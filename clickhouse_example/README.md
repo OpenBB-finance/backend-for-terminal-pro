@@ -13,10 +13,10 @@ You will need to identify the following from your ClickHouse account
 
 ```python
 client =  v.get_client(
-    host="",
+    host="XYZ",
     port=8443,
     username="default",
-    password="",
+    password="XYZ",
 )
 ```
 
