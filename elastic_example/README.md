@@ -7,7 +7,7 @@ Start by running: `pip install elasticsearch` - This will install the [official 
 
 ## Step 2 - Add ElasticSearch Account info
 
-You will need to identify the following from your snowflake account
+You will need to identify the following from your ElasticSearch account
 
 ```python
 client = Elasticsearch(
@@ -16,7 +16,9 @@ client = Elasticsearch(
 )
 ```
 
+Your Elasticsearch endpoint can be found on the "My deployment" page of your deployment. It will be under Applications, in front of "Elasticsearch" and you can click on "Copy endpoint" directly.
 
+For the API key, you can generate it on the "Management" page under Security.
 
 ## Step 3 - Configure the widgets.json and endpoints
 
