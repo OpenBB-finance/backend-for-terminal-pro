@@ -34,7 +34,7 @@ def read_root():
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
     file_path = "widgets.json"
-    with open(file_path, "r", encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return JSONResponse(content=data)
 
@@ -64,7 +64,5 @@ def get_chains():
 
     # return the plotly json
 
-    print(
-        f"Request error {response.status_code}: {response.text}"
-    )
+    print(f"Request error {response.status_code}: {response.text}")
     return None

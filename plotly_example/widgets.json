@@ -7,7 +7,7 @@
     "widgetType": "individual",
     "widgetId": "chains",
     "defaultViz": "chart",
-    "endpoint": "/chains",
+    "endpoint": "chains",
     "gridData": {
       "w": 20,
       "h": 5
