@@ -6,7 +6,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "cybersyn_severe_weather_days_in_florida",
-    "endpoint": "/cybersyn_severe_weather_days_in_florida",
+    "endpoint": "cybersyn_severe_weather_days_in_florida",
     "gridData": {
       "w": 20,
       "h": 5
