@@ -1,9 +1,10 @@
 import json
-import csv
+from pathlib import Path
 
+import pandas as pd
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -23,6 +24,9 @@ app.add_middleware(
 )
 
 
+ROOT_PATH = Path(__file__).parent.resolve()
+
+
 @app.get("/")
 def read_root():
     return {"Info": "Read file example for the OpenBB Terminal Pro"}
@@ -31,10 +35,7 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding="utf-8") as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(content=json.load((ROOT_PATH / "widgets.json").open()))
 
 
 @app.get("/json-data")
@@ -44,18 +45,12 @@ def json_data():
     json_file_path = "mock_data.json"
 
     try:
-        # Open the JSON file for reading
-        with open(json_file_path, mode="r", encoding="utf-8") as json_file:
-            # Load the JSON data
-            chains_data = json.load(json_file)
-
         # Return the JSON data as is
-        return chains_data["stocks"]
-
+        return json.load((ROOT_PATH / json_file_path).open()).get("stocks", [])
     except Exception as e:
         # Handle error cases here
         error_message = f"Error reading the JSON file: {str(e)}"
-        return {"error": error_message}
+        return JSONResponse(content={"error": error_message}, status_code=500)
 
 
 @app.get("/csv-data")
@@ -65,23 +60,9 @@ def csv_data():
     csv_file_path = "mock_data.csv"
 
     try:
-        # Open the CSV file for reading
-        with open(csv_file_path, mode="r", encoding="utf-8") as csv_file:
-            # Create a CSV reader
-            csv_reader = csv.DictReader(csv_file)
-
-            # Initialize an empty list to store CSV data
-            chains_data = []
-
-            # Iterate through each row in the CSV file
-            for row in csv_reader:
-                # Append each row (as a dictionary) to the list
-                chains_data.append(row)
-
-        # Return the CSV data as JSON response
-        return json.loads(json.dumps(chains_data))
-
+        # Convert the DataFrame to a dictionary and return the data
+        return pd.read_csv((ROOT_PATH / csv_file_path).open()).to_dict(orient="records")
     except Exception as e:
         # Handle error cases here
         error_message = f"Error reading the CSV file: {str(e)}"
-        return {"error": error_message}
+        return JSONResponse(content={"error": error_message}, status_code=500)

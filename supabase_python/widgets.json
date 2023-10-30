@@ -6,7 +6,7 @@
     "searchCategory": "economy",
     "widgetType": "individual",
     "widgetId": "financial_data_from_supabase",
-    "endpoint": "/financial_data_from_supabase",
+    "endpoint": "financial_data_from_supabase",
     "gridData": {
       "w": 20,
       "h": 5

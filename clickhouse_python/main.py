@@ -1,10 +1,10 @@
 import json
-
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
+from pathlib import Path
 
 import clickhouse_connect
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 client = clickhouse_connect.get_client(
     host="",
@@ -39,17 +39,17 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding='utf-8') as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
+    )
+
 
 @app.get("/avg_price_per_year_london")
 def avg_price_per_year_london():
     """Return clickhouse data"""
 
     results = client.query_df(
-"""SELECT
+        """SELECT
    toYear(date) AS year,
    round(avg(price)) AS price
 FROM uk_price_paid
@@ -58,8 +58,6 @@ GROUP BY year
 ORDER BY year
 """
     )
-    # convert df to json
-    results_json = results.to_json(orient="records")
-    json_obj = json.loads(results_json)
 
-    return json_obj
+    # convert df to json
+    return json.loads(results.to_json(orient="records"))

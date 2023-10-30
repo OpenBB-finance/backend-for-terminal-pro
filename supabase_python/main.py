@@ -1,15 +1,12 @@
 import json
+from pathlib import Path
 
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from supabase import Client, create_client
 
-from supabase import create_client, Client
-
-supabase: Client = create_client(
-    url="",
-    key=""
-)
+supabase: Client = create_client(url="", key="")
 
 app = FastAPI()
 
@@ -37,10 +34,9 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding='utf-8') as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
+    )
 
 
 @app.get("/financial_data_from_supabase")
@@ -50,7 +46,7 @@ def get_financial_data():
     try:
         results = supabase.table("financial_data").select("*").execute()
 
+        return results.data
     except Exception as err:
         print(f"Error {err}")
-
-    return results.data
+        return JSONResponse(content={"error": err}, status_code=500)

@@ -1,15 +1,12 @@
 import json
-
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
+from pathlib import Path
 
 from elasticsearch import Elasticsearch
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
-client = Elasticsearch(
-  "",
-  api_key=""
-)
+client = Elasticsearch("", api_key="")
 
 app = FastAPI()
 
@@ -37,10 +34,9 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding="utf-8") as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
+    )
 
 
 @app.get("/elastic_example")
@@ -50,12 +46,7 @@ def elastic_example():
     try:
         # Example of data ingestion
         documents = [
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9780553351927"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9780553351927"}},
             {
                 "name": "Snow Crash",
                 "author": "Neal Stephenson",
@@ -63,14 +54,9 @@ def elastic_example():
                 "page_count": 470,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
+                "_run_ml_inference": True,
             },
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9780441017225"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9780441017225"}},
             {
                 "name": "Revelation Space",
                 "author": "Alastair Reynolds",
@@ -78,14 +64,9 @@ def elastic_example():
                 "page_count": 585,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
+                "_run_ml_inference": True,
             },
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9780451524935"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9780451524935"}},
             {
                 "name": "1984",
                 "author": "George Orwell",
@@ -93,14 +74,9 @@ def elastic_example():
                 "page_count": 328,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
+                "_run_ml_inference": True,
             },
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9781451673319"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9781451673319"}},
             {
                 "name": "Fahrenheit 451",
                 "author": "Ray Bradbury",
@@ -108,14 +84,9 @@ def elastic_example():
                 "page_count": 227,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
+                "_run_ml_inference": True,
             },
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9780060850524"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9780060850524"}},
             {
                 "name": "Brave New World",
                 "author": "Aldous Huxley",
@@ -123,14 +94,9 @@ def elastic_example():
                 "page_count": 268,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
+                "_run_ml_inference": True,
             },
-            {
-                "index": {
-                    "_index": "search-spiderman",
-                    "_id": "9780385490818"
-                }
-            },
+            {"index": {"_index": "search-spiderman", "_id": "9780385490818"}},
             {
                 "name": "The Handmaid's Tale",
                 "author": "Margaret Atwood",
@@ -138,24 +104,13 @@ def elastic_example():
                 "page_count": 311,
                 "_extract_binary_content": True,
                 "_reduce_whitespace": True,
-                "_run_ml_inference": True
-            }
+                "_run_ml_inference": True,
+            },
         ]
-        client.bulk(
-            operations=documents,
-            pipeline="ent-search-generic-ingestion"
-        )
+        client.bulk(operations=documents, pipeline="ent-search-generic-ingestion")
 
-        res = client.search(
-            index="search-spiderman",
-            q="*"
-        )
+        res = client.search(index="search-spiderman", q="*")
 
-        json_data = list()
-        for v in res.body["hits"]["hits"]:
-            json_data.append(v["_source"])
-
+        return [v["_source"] for v in res.body["hits"]["hits"]]
     except Exception as err:
-        print(f"Error: {err}")
-
-    return json_data
+        return JSONResponse(content={"error": err}, status_code=500)
