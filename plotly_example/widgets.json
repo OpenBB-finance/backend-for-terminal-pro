@@ -1,11 +1,11 @@
 {
   "chains": {
-    "name": "Chains",
-    "description": "Get current TVL of all chains using Defi LLama",
+    "name": "Chains-Chart",
+    "description": "Get current TVL of all chains and plot it!",
     "category": "crypto",
     "searchCategory": "crypto",
     "widgetType": "individual",
-    "widgetId": "chains",
+    "widgetId": "chains-plotly",
     "defaultViz": "chart",
     "endpoint": "chains",
     "gridData": {
