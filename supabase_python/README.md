@@ -16,6 +16,8 @@ TL;DR: Install Supabase with `pip install supabase-py`
 
 ## 3. Extract Supabase information
 
+![image](https://github.com/OpenBB-finance/backend-for-terminal-pro/assets/25267873/8efa0ac6-2d4d-4e65-b246-08876179c22e)
+
 You will need to identify the following from your Supabase account
 
 ```python
