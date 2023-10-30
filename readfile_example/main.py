@@ -46,7 +46,7 @@ def json_data():
 
     try:
         # Return the JSON data as is
-        return json.load(ROOT_PATH / json_file_path).get("stocks", [])
+        return json.load((ROOT_PATH / json_file_path).open()).get("stocks", [])
     except Exception as e:
         # Handle error cases here
         error_message = f"Error reading the JSON file: {str(e)}"
@@ -61,7 +61,7 @@ def csv_data():
 
     try:
         # Convert the DataFrame to a dictionary and return the data
-        return pd.read_csv(ROOT_PATH / csv_file_path).to_dict(orient="records")
+        return pd.read_csv((ROOT_PATH / csv_file_path).open()).to_dict(orient="records")
     except Exception as e:
         # Handle error cases here
         error_message = f"Error reading the CSV file: {str(e)}"
