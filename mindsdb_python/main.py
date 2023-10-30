@@ -1,12 +1,12 @@
 import json
+from pathlib import Path
 
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from mindsdb_sdk import connect
 
-import mindsdb_sdk
-
-server = mindsdb_sdk.connect(
+server = connect(
     login="",
     password="",
 )
@@ -37,10 +37,9 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding='utf-8') as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
+    )
 
 
 @app.get("/home_rentals_prediction")
@@ -48,10 +47,10 @@ def get_home_rentals_prediction():
     """Return MindsDB data"""
 
     try:
-        database = server.get_database('example_db')
-        table = database.get_table('demo_data.home_rentals')
-        project = server.get_project('mindsdb')
-        model = project.get_model('home_rentals_model')
+        database = server.get_database("example_db")
+        table = database.get_table("demo_data.home_rentals")
+        project = server.get_project("mindsdb")
+        model = project.get_model("home_rentals_model")
         predictions = model.predict(table)
 
         predictions = predictions.drop("rental_price_explain", axis=1)
@@ -59,9 +58,9 @@ def get_home_rentals_prediction():
         data_dict = predictions.to_dict(orient="records")
 
         for i, data in enumerate(data_dict, start=1):
-            data['id'] = i
+            data["id"] = i
 
+        return data_dict
     except Exception as err:
         print(f"Programming Error: {err}")
-
-    return data_dict
+        return JSONResponse(content={"error": err}, status_code=500)

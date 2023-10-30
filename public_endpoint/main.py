@@ -1,9 +1,10 @@
 import json
-import requests
+from pathlib import Path
 
+import requests
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -31,10 +32,10 @@ def read_root():
 @app.get("/widgets.json")
 def get_widgets():
     """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r", encoding='utf-8') as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
+    )
+
 
 @app.get("/chains")
 def get_chains():
@@ -45,7 +46,7 @@ def get_chains():
     if response.status_code == 200:
         return response.json()
 
-    print(
-        f"Request error {response.status_code}: {response.text}"
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
     )
-    return None
