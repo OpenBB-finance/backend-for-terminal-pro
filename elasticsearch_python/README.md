@@ -27,4 +27,8 @@ client = Elasticsearch(
 
 Your Elasticsearch endpoint can be found on the "My deployment" page of your deployment. It will be under Applications, in front of "Elasticsearch" and you can click on "Copy endpoint" directly.
 
+![es-endpoint](https://github.com/OpenBB-finance/backend-for-terminal-pro/assets/25267873/99d5ee6e-ebfa-4823-afa1-39c0edef115e)
+
 For the API key, you can generate it on the "Management" page under Security.
+
+![create-api-key](https://github.com/OpenBB-finance/backend-for-terminal-pro/assets/25267873/e22e8f8c-65f7-4c4e-9e14-0b8a550c9e2b)
