@@ -3,7 +3,7 @@
 This utilizes data from https://api.llama.fi/v2/chain and renders the data as a barchart directly instead of a table.
 
 
-## Step 1 - Configure your widgets.json and endpoints.
+## Step 1 - Configure your main.py
 
 In [main.py](/plotly_example/widgets.json) configure your Plotly object and export it as `figure.to_json()` like shown in the example. In our case we are creating a bar chart.
 
