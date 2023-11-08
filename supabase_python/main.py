@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from supabase import Client, create_client
 
-supabase: Client = create_client(url="", key="")
+supabase: Client = create_client("URL HERE", "KEY HERE")
 
 app = FastAPI()
 
