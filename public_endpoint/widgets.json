@@ -5,7 +5,7 @@
     "category": "crypto",
     "searchCategory": "crypto",
     "widgetType": "individual",
-    "widgetId": "chains",
+    "widgetId": "chains_table",
     "endpoint": "chains",
     "gridData": {
       "w": 20,
