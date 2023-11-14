@@ -1,5 +1,5 @@
 {
-  "chains": {
+  "chains-plotly": {
     "name": "Chains-Chart",
     "description": "Get current TVL of all chains and plot it!",
     "category": "crypto",
