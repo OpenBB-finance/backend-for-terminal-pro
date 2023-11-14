@@ -1,5 +1,5 @@
 {
-  "csvData": {
+  "csvStockMock": {
     "name": "CSV Mock Data",
     "description": "Mock CSV Stock Data for OpenBB",
     "category": "stocks",
@@ -45,7 +45,7 @@
       }
     }
   },
-  "jsonData": {
+  "jsonStockMock": {
     "name": "Json Mock Data",
     "description": "Mock json Stock Data for OpenBB",
     "category": "stocks",
