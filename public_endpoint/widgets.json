@@ -1,5 +1,5 @@
 {
-  "chains": {
+  "chains_table": {
     "name": "Chains",
     "description": "Get current TVL of all chains using Defi LLama",
     "category": "crypto",
