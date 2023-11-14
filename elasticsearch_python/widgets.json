@@ -1,5 +1,5 @@
 {
-  "elastic": {
+  "elastic_example": {
     "name": "Elastic example",
     "description": "Elastic example bulk documents",
     "category": "economy",
