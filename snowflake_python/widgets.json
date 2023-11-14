@@ -1,5 +1,5 @@
 {
-  "snowflake": {
+  "cybersyn_severe_weather_days_in_florida": {
     "name": "Severe Weather Days in Florida",
     "description": "Determine how many tornados, waterspouts, or funnel clouds were recorded in Florida each year since 2010",
     "category": "economy",
