@@ -1,5 +1,5 @@
 {
-  "mindsdb": {
+  "home_rentals_prediction": {
     "name": "Home rental prediction",
     "description": "Home rental prediction using MindsDB",
     "category": "economy",
