@@ -1,5 +1,5 @@
 {
-  "supabase": {
+  "financial_data_from_supabase": {
     "name": "Financial data supabase",
     "description": "Financial data from supabase",
     "category": "economy",
