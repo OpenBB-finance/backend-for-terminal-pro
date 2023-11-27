@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to. 
+Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to.
 
 Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
 
@@ -90,6 +90,26 @@ def get_widgets():
 This contains the settings for all the widgets that the backend contains.
 
 This file is a dictionary, and each dictionary within represents a widget.
+
+You must ensure that in your `widget.json` - each widget name (top level) will match the widgetID like shown in the examples
+
+```jsonc
+{
+  "financial_data_from_supabase": { // this name must match widgetId
+    "name": "Financial data supabase",
+    "description": "Financial data from supabase",
+    "category": "economy",
+    "searchCategory": "economy",
+    "widgetType": "individual",
+    "widgetId": "financial_data_from_supabase", // match to top name
+    "endpoint": "financial_data_from_supabase",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    }
+  }
+}
+```
 
 Each widget will have the following properties:
 
