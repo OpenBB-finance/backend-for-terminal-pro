@@ -85,6 +85,61 @@ def get_widgets():
 
 * Creates remaining endpoints that retrieve data that will be consumed by the Terminal Pro
 
+
+### Passing Params (Table Only)
+
+To pass params in the widget you can check out he example below :
+
+You can see we set our endpoint to take the symbol param and then handle it to pass to the API (In our example we hit
+a unique endpoint but the url request ultimately looks like this against our api `/get_options?symbol=AMZN` )
+
+In our main.py :
+
+```python
+@app.get("/get_options")
+def get_options(symbol: str):
+    """Get options data"""
+
+    response = requests.get(f'https://test.com/options/flow/{symbol}')
+
+    if response.status_code == 200:
+        data = response.json()
+        return data
+```
+
+And in our widgets.json :
+
+```jsonc
+{
+  "get_options": {
+    "name": "Options Data",
+    "description": "Options Data from Source",
+    "category": "options",
+    "searchCategory": "options",
+    "widgetType": "options",
+    "widgetId": "get_options",
+    "params": { "symbol": "", "optional": { "interval": [1, 2, 3, 4, 5] } }, //interval isn't needed here just showing other ways to pass more params
+    "options": {
+      "allowTickerChange": true // needed if you are going to pass symbol since we already built out this search
+    },
+    "endpoint": "get_options",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "showAll": true,
+        "index": "symbol"
+      }
+    }
+  }
+}
+
+This then allows us to use the pass the ticker to the endpoint along with any other optional params you need.
+
+```
+
 ### widgets.json
 
 This contains the settings for all the widgets that the backend contains.
