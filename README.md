@@ -119,6 +119,7 @@ And in our widgets.json :
     "widgetType": "options",
     "widgetId": "get_options",
     "params": { "symbol": "", "optional": { "interval": [1, 2, 3, 4, 5] } }, //interval isn't needed here just showing other ways to pass more params
+    // another example is "params": { "symbol": "", "date": "string" }, - which gives you a date picker to send
     "options": {
       "allowTickerChange": true // needed if you are going to pass symbol since we already built out this search
     },
