@@ -20,6 +20,7 @@ origins = [
     "http://localhost:1420",
     "http://localhost:5050",
     "https://pro.openbb.dev",
+    "https://pro.openbb.co",
 ]
 
 app.add_middleware(
