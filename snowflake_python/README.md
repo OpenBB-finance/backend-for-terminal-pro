@@ -12,9 +12,9 @@ Create an account at https://app.snowflake.com/.
 
 Read the [official Snowflake connector for python](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector).
 
-TL;DR: Install Supabase with `pip install snowflake-connector-python`
+TL;DR: Install Snowflake with `pip install snowflake-connector-python`
 
-## 3. Extract Supabase information
+## 3. Extract Snowflake information
 
 You will need to identify the following from your snowflake account
 
