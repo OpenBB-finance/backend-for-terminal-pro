@@ -320,8 +320,8 @@ Some browsers (Safari) or applications (Excel on Mac) require HTTPS to be enable
 
 To enable HTTPS in your local environment, follow these steps:
 
-1. Install [mkcert](https://github.com/FiloSottile/mkcert).
-2. cd into the backend you will be using, e.g. `cd snowflake_python`.
-3. Run `mkcert -install`.
+1. Get [mkcert](https://github.com/FiloSottile/mkcert).
+2. Run `mkcert -install`.
+3. cd into the backend you will be using, e.g. `cd snowflake_python`.
 4. Run `mkcert localhost 127.0.0.1 ::1`. This will create `localhost+2.pem` and `localhost+2-key.pem` files in the current directory.
 5. Run `uvicorn main:app --port 5050 --ssl-keyfile=localhost+2-key.pem --ssl-certfile=localhost+2.pem --reload` to start the server with HTTPS enabled.
