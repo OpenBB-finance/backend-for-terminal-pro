@@ -16,6 +16,8 @@ origins = [
     "http://localhost:5050",
     "https://pro.openbb.dev",
     "https://pro.openbb.co",
+    "https://excel.openbb.co",
+    "https://excel.openbb.dev",
 ]
 
 app.add_middleware(
