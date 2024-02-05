@@ -316,7 +316,7 @@ Each widget will have the following properties:
 
 ## HTTPS
 
-Some browsers (like Safari) or applications (Excel on Mac) require HTTPS to be enabled in order to fetch data from an API.
+Some browsers (Safari) or applications (Excel on Mac) require HTTPS to be enabled in order to fetch data from an API.
 
 To enable HTTPS in your local environment, follow these steps:
 
