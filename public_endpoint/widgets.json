@@ -4,8 +4,6 @@
     "description": "Get current TVL of all chains using Defi LLama",
     "category": "crypto",
     "searchCategory": "crypto",
-    "widgetType": "individual",
-    "widgetId": "chains_table",
     "endpoint": "chains",
     "gridData": {
       "w": 20,
