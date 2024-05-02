@@ -4,8 +4,6 @@
     "description": "Home rental prediction using MindsDB",
     "category": "economy",
     "searchCategory": "economy",
-    "widgetType": "individual",
-    "widgetId": "home_rentals_prediction",
     "endpoint": "home_rentals_prediction",
     "gridData": {
       "w": 20,

@@ -4,8 +4,6 @@
     "description": "Get current TVL of all chains using Defi LLama",
     "category": "crypto",
     "searchCategory": "crypto",
-    "widgetType": "individual",
-    "widgetId": "chains_table",
     "endpoint": "chains",
     "gridData": {
       "w": 20,
@@ -29,6 +27,62 @@
             "headerName": "Token Symbol",
             "field": "tokenSymbol",
             "chartDataType": "category"
+          }
+        ]
+      }
+    }
+  },
+  "bonds_data": {
+    "name": "Bonds",
+    "description": "Get bond data from IIROC",
+    "category": "finance",
+    "searchCategory": "finance",
+    "endpoint": "bonds",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "securityId",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Issuer",
+            "field": "issuer",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Security ID",
+            "field": "securityId"
+          },
+          {
+            "headerName": "Last Price",
+            "field": "lastPrice"
+          },
+          {
+            "headerName": "Last Yield",
+            "field": "lastYield"
+          },
+          {
+            "headerName": "Total Trades",
+            "field": "totalTrades"
+          },
+          {
+            "headerName": "Last Traded Date",
+            "field": "lastTradedDate"
+          },
+          {
+            "headerName": "Highest Price",
+            "field": "highestPrice"
+          },
+          {
+            "headerName": "Lowest Price",
+            "field": "lowestPrice"
+          },
+          {
+            "headerName": "Bond Type",
+            "field": "bondType"
           }
         ]
       }
