@@ -4,8 +4,6 @@
     "description": "Mock CSV Stock Data for OpenBB",
     "category": "stocks",
     "searchCategory": "stocks",
-    "widgetType": "individual",
-    "widgetId": "csvStockMock",
     "endpoint": "csv-data",
     "gridData": {
       "w": 20,
@@ -50,8 +48,6 @@
     "description": "Mock json Stock Data for OpenBB",
     "category": "stocks",
     "searchCategory": "stocks",
-    "widgetType": "individual",
-    "widgetId": "jsonStockMock",
     "endpoint": "json-data",
     "gridData": {
       "w": 20,

@@ -4,8 +4,6 @@
     "description": "Average house price per year in London",
     "category": "economy",
     "searchCategory": "economy",
-    "widgetType": "individual",
-    "widgetId": "avg_price_per_year_london",
     "endpoint": "avg_price_per_year_london",
     "gridData": {
       "w": 20,

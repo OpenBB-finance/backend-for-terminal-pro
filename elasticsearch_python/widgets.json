@@ -4,8 +4,6 @@
     "description": "Elastic example bulk documents",
     "category": "economy",
     "searchCategory": "economy",
-    "widgetType": "individual",
-    "widgetId": "elastic_example",
     "endpoint": "elastic_example",
     "gridData": {
       "w": 20,

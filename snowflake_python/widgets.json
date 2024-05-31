@@ -1,33 +1,83 @@
 {
-  "cybersyn_severe_weather_days_in_florida": {
-    "name": "Severe Weather Days in Florida",
-    "description": "Determine how many tornados, waterspouts, or funnel clouds were recorded in Florida each year since 2010",
+  "testing_all_this": {
+    "name": "Woop",
+    "description": "Woop",
     "category": "economy",
     "searchCategory": "economy",
     "widgetType": "individual",
-    "widgetId": "cybersyn_severe_weather_days_in_florida",
-    "endpoint": "cybersyn_severe_weather_days_in_florida",
+    "params": { "optional": {
+    "Databases":
+      [
+        "TERMINAL_LOGS",
+        "SNOWFLAKE_SAMPLE_DATA",
+        "HUB_POSTHOG",
+        "ENRICHED_DATA",
+        "PLATFORM_POSTHOG",
+        "TERMINAL_LOGS_POSTHOG"
+      ],
+    "Schema":
+      [
+        "TPCH_SF1",
+        "TPCH_SF1000",
+        "TPCDS_SF10TCL",
+        "TPCDS_SF100TCL",
+        "CONTACTS",
+        "TPCH_SF10",
+        "TPCH_SF100",
+        "PUBLIC"
+      ],
+    "Views":
+      [
+        "SHIP_MODE",
+        "WEB_RETURNS",
+        "TAG",
+        "CUSTOMER_ADDRESS",
+        "STORE_SALES",
+        "COMMIT",
+        "WEB_SITE",
+        "PARTSUPP",
+        "INCOME_BAND",
+        "ITEM",
+        "HOUSEHOLD_DEMOGRAPHICS",
+        "TIME_DIM",
+        "STORE",
+        "PLATFORM_EVENTS_EXPORT",
+        "RELEASE",
+        "CALL_CENTER",
+        "REASON",
+        "HUB_EVENTS_EXPORT",
+        "DATE_DIM",
+        "WAREHOUSE",
+        "CATALOG_RETURNS",
+        "ENRICHED",
+        "PROMOTION",
+        "CATALOG_PAGE",
+        "CATALOG_SALES",
+        "PART",
+        "NATION",
+        "TERMINAL_LOGS_EXPORT",
+        "CUSTOMER_DEMOGRAPHICS",
+        "STORE_RETURNS",
+        "LINEITEM",
+        "TERMINAL_LOGS",
+        "WEB_PAGE",
+        "WEB_SALES",
+        "ORDERS",
+        "REGION",
+        "SUPPLIER",
+        "CUSTOMER",
+        "INVENTORY"
+        ]
+      }
+    },
+    "endpoint": "testing_all_this",
     "gridData": {
       "w": 20,
       "h": 5
     },
     "data": {
       "table": {
-        "index": "Year",
-        "showAll": true,
-        "columnsDefs": [
-          {
-            "headerName": "Year",
-            "field": "YEAR",
-            "chartDataType": "time",
-            "cellDataType": "date"
-          },
-          {
-            "headerName": "Severe weather days",
-            "field": "COUNT_SEVERE_WEATHER_DAYS",
-            "formatterFn": "int"
-          }
-        ]
+        "showAll": true
       }
     }
   }
