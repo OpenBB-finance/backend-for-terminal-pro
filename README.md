@@ -43,6 +43,8 @@ Each Integration below has its folder which contains an example of a different i
 | [Readfile](/readfile_example/README.md) | This integration allows reading data directly from a file. |
 | [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. |
 | [Plotly](/plotly_example/README.md) | Plotly is a Python graphing library for interactive graphs. |
+| [LotOfData](/lotofdata_bun/README.md) | TypeScript implementation using Bun and Elysia, serving large datasets with SSRM AG Grid module. |
+
 
 ## Getting Started
 
