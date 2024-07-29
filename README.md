@@ -2,69 +2,74 @@
 
 ## Introduction
 
-Spinning up an OpenBB API is a versatile way to host your data and integrate it into widgets. Whether hosted internally or externally, this method provides a standardized API structure that Pro widgets can effortlessly connect to.
+An OpenBB Terminal Pro Custom Backend is a versatile way to connect your data to widgets inside OpenBB Terminal Pro. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Terminal Pro widgets can read and then display any data.
 
 Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
 
 The Main tenants are:
 
-1. Data returned should be in JSON non-nested format.
+1. **Data returned should be in JSON format** (Note : you can utilize the "dataKey" variable in the widgets.json if you have nested JSON.)
 
-Example :
+<details>
+    <summary>Example JSON</summary>
 
-```json
-[
- {
-  "color": "red",
-  "value": "#f00"
- },
- {
-  "color": "green",
-  "value": "#0f0"
- }
-]
-```
+    ```json
+    [
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "year": 1960,
+        "genre": "Fiction"
+      },
+      {
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "genre": "Dystopian"
+      },
+      {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "genre": "Classic"
+      }
+    ]
+    ```
 
-2. Ensure that you have a well-structured ```widgets.json``` file. This file defines widget properties such as name, description, category, type, endpoint, and other information needed. Each widget needs to be defined in this file – You can find the format in any of the templates folder with a detailed definition below.
+</details>
 
-3. API - If hosting locally you must enable CORS and have an endpoint available that will return the ```widgets.json``` file.
+2. **An endpoint returning a ```widgets.json``` file** : This file defines widget properties such as name, description, category, type, endpoint, and other information. Each widget will be defined in this file – You can find the format in any of the templates folder with a detailed definition below.
+
+3. **CORS Enabled** : If hosting locally you must enable [CORS](https://fastapi.tiangolo.com/tutorial/cors/).
 
 ## Supported Integrations and Templates
 
-Each Integration below has its folder which contains an example of a different implementation.
+Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Plotly Example.
 
 | Integration | Description |
 | ----------- | ----------- |
-| [Snowflake](/snowflake_python/README.md) | Snowflake is a cloud-based data warehousing platform. (Deprecated : Use Native Integration) |
+| [Plotly](/plotly_example/README.md) | Example of Widgets with a graph returned and tables |
+| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. |
 | [ClickHouse](/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
 | [Supabase](/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
 | [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
 | [ElasticSearch](/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
-| [Readfile](/readfile_example/README.md) | This integration allows reading data directly from a file. |
-| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. |
-| [Plotly](/plotly_example/README.md) | Plotly is a Python graphing library for interactive graphs. |
 
 ## Getting Started
 
-1. Go into the folder you want to test
+1. Go into the folder you want to run and read the `README.md` file with instructions.
 
-2. Read the README.md file with instructions
+2. Run `pip install -r requirements.txt`
 
-3. Run `uvicorn main:app --port 5050`
+3. Run `uvicorn main:app --port 5050` to start your backend.
 
-(add an image of what it looks like in the console)
-
-3. Add steps for Data Connectors in the Terminal Pro
-
-(add steps according to Terminal Pro)
+4. Create a Custom Backend on OpenBB Terminal Pro with the link to your API URL (e.g., <http://localhost:5050>).
 
 ## Code explained
 
 ### main.py
 
-This is responsible for running the FastAPI with endpoints that will be consumed by the Terminal Pro.
-
-This file:
+This file is responsible for running the FastAPI with endpoints that will be consumed by the OpenBB Terminal Pro.
 
 * Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Terminal Pro link.
 
@@ -72,37 +77,43 @@ This file:
 
 * Ensures that there's a `/widgets.json` file that the OpenBB Terminal Pro can use to configure the widgets configured
 
-```python
-@app.get("/widgets.json")
-def get_widgets():
-    """Widgets configuration file for the OpenBB Terminal Pro"""
-    file_path = "widgets.json"
-    with open(file_path, "r") as file:
-        data = json.load(file)
-    return JSONResponse(content=data)
-```
+  <details>
+      <summary>Endpoint to fetch widgets.json file</summary>
+
+  ```python
+  @app.get("/widgets.json")
+  def get_widgets():
+      """Widgets configuration file for the OpenBB Terminal Pro"""
+      file_path = "widgets.json"
+      with open(file_path, "r") as file:
+          data = json.load(file)
+      return JSONResponse(content=data)
+  ```
+
+  </details>
 
 * Creates remaining endpoints that retrieve data that will be consumed by the Terminal Pro
 
 ### widgets.json
 
-This contains the settings for all the widgets that the backend contains.
+This file contains the settings for all the widgets that the backend contains. Each dictionary within represents a widget with different configurations.
 
-This file is a dictionary, and each dictionary within represents a widget with different configurations that can be passed.
-
-You must ensure that in your `widget.json` you pass the three required fields - everything else is optional but allows for more configuration.
+You must ensure that in your `widgets.json` you pass the three required fields - everything else is optional but allows for more configuration.
 
 Also note that the key must be unique.
+
+  <details>
+      <summary>Example widgets.json file</summary>
 
 ```jsonc
 {
   "financial_data_from_supabase": { // must be unique in your widgets.json
-    "name": "Financial data supabase", // required
-    "description": "Financial data from supabase", // required
-    "endpoint": "financial_data_from_supabase", // required
-    "category": "economy", // optional
-    "searchCategory": "economy", // optional
-    "gridData": { // optional
+    "name": "Financial data supabase", // required - Name of the Widget
+    "description": "Financial data from supabase", // required - Description of the Widget
+    "endpoint": "financial_data_from_supabase", // required - What endpoint to hit from the main.py file
+    "category": "economy", // optional - what category to show under on the search inside OpenBB Terminal Pro
+    "searchCategory": "economy", // optional - what category to show under on the search inside OpenBB Terminal Pro
+    "gridData": { // optional - how large you want the widget to be on the dashboard
       "w": 20,
       "h": 5
     }
@@ -110,14 +121,17 @@ Also note that the key must be unique.
 }
 ```
 
+  </details>
+
 ### Passing Params (Table Only)
 
-To pass params in the widget you can check out he example below :
+To pass params in the widget, check out the example below:
 
-You can see we set our endpoint to take the symbol param and then handle it to pass to the API (In our example we hit
-a unique endpoint but the url request ultimately looks like this against our api `/get_options?symbol=AMZN` )
+You can see we set our endpoint to take the symbol param and then handle it to pass to the API. In our example,
+we hit a unique endpoint, but the URL request ultimately looks like this against our API: `/get_options?symbol=AMZN`.
 
-In our main.py :
+  <details>
+      <summary>main.py</summary>
 
 ```python
 @app.get("/get_options")
@@ -131,7 +145,10 @@ def get_options(symbol: str):
         return data
 ```
 
-And in our widgets.json :
+ </details>
+
+   <details>
+      <summary>widgets.json</summary>
 
 ```jsonc
 {
@@ -158,11 +175,19 @@ And in our widgets.json :
   }
 }
 
-This then allows us to use the pass the ticker to the endpoint along with any other optional params you need.
-
 ```
 
-Each widget will have the following properties:
+ </details>
+
+This then allows us to use the pass the ticker to the endpoint along with any other optional params you need.
+
+## Advanced Configurations
+
+Each widget can support a wide range of configurations. Some examples include - changing the initial size of a widget, adding a datakey to parse nested JSON, changing column formatting and much more.
+The JSON below illustrates the additional settings possible:
+
+<details>
+    <summary>JSON Configurations</summary>
 
 ```jsonc
 {
@@ -237,7 +262,11 @@ Each widget will have the following properties:
 }
 ```
 
-## HTTPS
+</details>
+
+## Additional Configurations / Troubleshooting
+
+### HTTPS
 
 Some browsers (Safari) or applications (Excel on Mac) require HTTPS to be enabled to fetch data from an API.
 
