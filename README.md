@@ -44,12 +44,11 @@ The Main tenants are:
 
 ## Supported Integrations and Templates
 
-Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Plotly Example.
+Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Full Example.
 
 | Integration | Description |
 | ----------- | ----------- |
-| [Plotly](/plotly_example/README.md) | Example of Widgets with a graph returned and tables |
-| [Public](/public_endpoint/README.md) | This integration allows fetching data from public APIs. |
+| [Full Example](/plotly_example/README.md) | Example of Widgets with a graph returned and tables |
 | [ClickHouse](/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
 | [Supabase](/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
 | [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |

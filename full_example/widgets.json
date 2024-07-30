@@ -1,4 +1,54 @@
 {
+  "chains_plotly": {
+      "name": "Chains chart example",
+      "description": "Get current TVL of all chains and plot it!",
+      "category": "crypto",
+      "searchCategory": "crypto",
+      "defaultViz": "chart",
+      "endpoint": "chains",
+      "gridData": {
+        "w": 20,
+        "h": 5
+      },
+      "data": {
+        "chart": {
+          "type": "bar"
+        }
+      }
+  },
+  "chains_table": {
+    "name": "Chains table example",
+    "description": "Get current TVL of all chains using Defi LLama",
+    "category": "crypto",
+    "searchCategory": "crypto",
+    "endpoint": "chains_table",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "name",
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Name",
+            "field": "name",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Total Value Locked",
+            "field": "tvl"
+          },
+          {
+            "headerName": "Token Symbol",
+            "field": "tokenSymbol",
+            "chartDataType": "category"
+          }
+        ]
+      }
+    }
+  },
   "csvStockMock": {
     "name": "CSV Mock Data",
     "description": "Mock CSV Stock Data for OpenBB",

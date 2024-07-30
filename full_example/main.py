@@ -29,6 +29,8 @@ app.add_middleware(
 )
 
 
+ROOT_PATH = Path(__file__).parent.resolve()
+
 @app.get("/")
 def read_root():
     return {"Info": "Plotly example for the OpenBB Terminal Pro"}
@@ -65,3 +67,48 @@ def get_chains():
     return JSONResponse(
         content={"error": response.text}, status_code=response.status_code
     )
+
+
+@app.get("/chains_table")
+def chains_table():
+    """Get current TVL of all chains using Defi LLama"""
+    params = {}
+    response = requests.get("https://api.llama.fi/v2/chains", params=params)
+
+    if response.status_code == 200:
+        return response.json()
+
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
+    )
+
+
+@app.get("/json-data")
+def json_data():
+    """Read mock csv data and return it as a table to your widget"""
+    # Specify the path to your JSON file
+    json_file_path = "mock_data.json"
+
+    try:
+        # Return the JSON data as is
+        return json.load((ROOT_PATH / json_file_path).open()).get("stocks", [])
+    except Exception as e:
+        # Handle error cases here
+        error_message = f"Error reading the JSON file: {str(e)}"
+        return JSONResponse(content={"error": error_message}, status_code=500)
+
+
+@app.get("/csv-data")
+def csv_data():
+    """Read mock csv data and return it as a table to your widget"""
+    # Specify the path to your CSV file
+    csv_file_path = "mock_data.csv"
+
+    try:
+        # Convert the DataFrame to a dictionary and return the data
+        return pd.read_csv((ROOT_PATH / csv_file_path).open()).to_dict(orient="records")
+    except Exception as e:
+        # Handle error cases here
+        error_message = f"Error reading the CSV file: {str(e)}"
+        return JSONResponse(content={"error": error_message}, status_code=500)
