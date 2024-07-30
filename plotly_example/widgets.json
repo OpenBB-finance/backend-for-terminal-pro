@@ -1,5 +1,4 @@
 {
-
   "chains-plotly": {
       "name": "Chains-Chart",
       "description": "Get current TVL of all chains and plot it!",
@@ -16,83 +15,5 @@
           "type": "bar"
         }
       }
-  },
-  "get_options": {
-    "name": "Options Data",
-    "description": "Options Data from Bot",
-    "category": "options",
-    "searchCategory": "options",
-    "widgetType": "options",
-    "params": { "symbol": ""},
-    "endpoint": "get_options",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "showAll": true,
-        "index": "symbol"
-      }
-    }
-  },
-  "get_earnings": {
-    "name": "Earnings Data by date",
-    "description": "Earnings Data from Bot by date",
-    "category": "earnings",
-    "searchCategory": "earnings",
-    "widgetType": "custom",
-    "params": { "date": "string" },
-    "endpoint": "get_earnings",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "showAll": true,
-        "index": "symbol"
-      }
-    }
-  },
-  "get_largest_trades": {
-    "name": "Largest Trades",
-    "description": "Largest Trades over x amount of days from Bot",
-    "category": "trades",
-    "searchCategory": "trades",
-    "params": {"optional" : { "days": ["1","5","10","20","30"]}},
-    "endpoint": "get_largest_trades",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "showAll": true,
-        "index": "symbol"
-      }
-    }
-  },
-  "get_short_vol": {
-    "name": "Short Vol",
-    "description": "Short volume statistics from Bot",
-    "category": "trades",
-    "searchCategory": "trades",
-    "widgetType": "custom",
-    "params": { "symbol": ""},
-    "options": {
-      "allowTickerChange": true
-    },
-    "endpoint": "short_vol",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "showAll": true,
-        "index": "symbol"
-      }
-    }
   }
 }
