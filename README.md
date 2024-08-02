@@ -42,6 +42,8 @@ The Main tenants are:
 
 3. **CORS Enabled** : If hosting locally you must enable [CORS](https://fastapi.tiangolo.com/tutorial/cors/).
 
+4. **Adding Authentication (optional)** : If your backend requires authentication we offer the ability to set a query param or header when you connect to it through OpenBB Terminal Pro. These values are sent on every request when configured. If you require another method - please reach out to us.
+
 ## Supported Integrations and Templates
 
 Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Full Example.
@@ -158,7 +160,8 @@ def get_options(symbol: str):
     "searchCategory": "options",
     "widgetType": "options",
     "params": { "symbol": "", "optional": { "interval": [1, 2, 3, 4, 5] } }, //interval isn't needed here just showing other ways to pass more params
-    // another example is "params": { "symbol": "", "date": "string" }, - which gives you a date picker to send
+    // another example is "params": { "symbol": "", "date": {"$currentDate-1d"} }, - which gives you a date picker to send - you can pass just a date here or we offer
+    // the ability to pass - ("h" | "d" | "D" | "w" | "M" | "y") along with $currentDate to set a date a dynamic date
     // note - symbol and date are passed outside of optional
     "endpoint": "get_options",
     "gridData": {
@@ -257,7 +260,13 @@ The JSON below illustrates the additional settings possible:
   "params": {
     // URL params to send to the endpoint (e.g., callback endpoint in "analyst_upgrades_downgrades").
     "key": "value"
-  }
+  },
+  // This allows you the ability to switch between a chart and table directly on the widget
+  // This shows line chart by default
+  "chartView": {
+      "enabled": true,
+      "chartType": "line"
+    }
 }
 ```
 
