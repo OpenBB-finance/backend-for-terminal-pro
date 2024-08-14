@@ -193,80 +193,87 @@ The JSON below illustrates the additional settings possible:
 
 ```jsonc
 {
-  // required properties
-  "name": "string", // Name of the widget in the list the user sees. Displayed on top left of widget.
-  "description": "string", // Description to show to the user on the info button and on the search/add widget menu.
-  "endpoint": "string", // Endpoint for the widget data.
-  // optional properties
-  "category": "string", // Category to show the widget under the widget search. If you pass a category we don't have it will make one. Default : My Widgets
-  "sub_category": "string", // Sub category to show in the widget search. Default : None
-  "source": ["source"], // sources for the advanced widget - you can pass multiple here
-  "gridData": {
-    // Grid data configuration for the widget. How large you want the widget to be on initial render
-    "x": 0, // Horizontal grid position.
-    "y": 0, // Vertical grid position.
-    "w": 0, // Width for the widget in the grid.
-    "h": 0, // Height for the widget in the grid.
-    "minH": 0, // Minimum height.
-    "minW": 0, // Minimum width.
-    "maxH": 0, // Maximum height.
-    "maxW": 0, // Maximum width.
-    "static": false, // Indicates if the widget is static and cannot be moved. Default : false
-    "isDraggable": true // Specifies if the widget can be dragged. Default : true
-  },
-  "storage": {
-    // Storage for the widget that doesn't fit in the other fields.
-    "key": "value"
-  },
-  "defaultViz" : "table", // Default visualization for the widget. Can be one of table or chart (default : table)
-  "type": "string", // Main widget type (chart, table, note, custom).
-  "widgetId": "string", // Identifier for the specific widget instance. Used to map with openbb ui widgets.
-  "data": {
-    "dataKey": "string", // Key for the data.
-    "table": {
-      // Configurations for the Table
-      "enableCharts": true, // Allow charting to work from the widget table (default: true)
-      "showAll": true, // Indicates if all data should be shown.
-      "transpose": true, // Indicates if the table should be transposed.
-      "columnsDefs": [
-        {
-          // Configuration for table columns.
-          "field": "string", // Field name from the JSON data.
-          "headerName": "string", // Header name for the column.
-          "chartDataType": "string", // Chart data type (category, series, time, excluded).
-          "cellDataType": "string", // Cell data type (text, number, boolean, date, dateString, object).
-          "formatterFn": "string", // Formatter function (int, bigInt, etc.).
-          "renderFn": "string", // Render function (green, red, titleCase, etc.).
-          "width": 0, // Width of the column.
-          "hide": true, // Indicates if the column should be hidden.
-        }
-      ],
-      "mode": "string", // Display mode for the table (light, dark).
-      "density": "string", // Density mode for the table (compact, default).
+  "widget" : { // must be unique in your widgets.json
+    // required properties
+    "name": "string", // Name of the widget in the list the user sees. Displayed on top left of widget.
+    "description": "string", // Description to show to the user on the info button and on the search/add widget menu.
+    "endpoint": "string", // Endpoint for the widget data.
+    // optional properties
+    "category": "string", // Category to show the widget under the widget search. If you pass a category we don't have it will make one. Default : My Widgets
+    "sub_category": "string", // Sub category to show in the widget search. Default : None
+    "source": ["source"], // sources for the advanced widget - you can pass multiple here
+    "gridData": {
+      // Grid data configuration for the widget. How large you want the widget to be on initial render
+      "x": 0, // Horizontal grid position.
+      "y": 0, // Vertical grid position.
+      "w": 0, // Width for the widget in the grid.
+      "h": 0, // Height for the widget in the grid.
+      "minH": 0, // Minimum height.
+      "minW": 0, // Minimum width.
+      "maxH": 0, // Maximum height.
+      "maxW": 0, // Maximum width.
+      "static": false, // Indicates if the widget is static and cannot be moved. Default : false
+      "isDraggable": true // Specifies if the widget can be dragged. Default : true
     },
-    "chart": {
-      // Chart instance that hits a callback for the JSON data.
-      "callback": "string" // Callback function for the chart.
-    }
+    "storage": {
+      // Storage for the widget that doesn't fit in the other fields.
+      "key": "value"
+    },
+    "defaultViz" : "table", // Default visualization for the widget. Can be one of table or chart (default : table)
+    "type": "string", // Main widget type (chart, table, note, custom).
+    "data": {
+      "dataKey": "string", // Key for the data.
+      "table": {
+        // Configurations for the Table
+        "enableCharts": true, // Allow charting to work from the widget table (default: true)
+        "showAll": true, // Indicates if all data should be shown.
+        "transpose": true, // Indicates if the table should be transposed.
+        "columnsDefs": [
+          {
+            // Configuration for table columns.
+            "field": "string", // Field name from the JSON data.
+            "headerName": "string", // Header name for the column.
+            "chartDataType": "string", // Chart data type (category, series, time, excluded).
+            "cellDataType": "string", // Cell data type (text, number, boolean, date, dateString, object).
+            "formatterFn": "string", // Formatter function (int, bigInt, etc.).
+            "renderFn": "string", // Render function (green, red, titleCase, etc.).
+            "width": 0, // Width of the column.
+            "hide": true, // Indicates if the column should be hidden.
+          }
+        ],
+        "mode": "string", // Display mode for the table (light, dark).
+        "density": "string", // Density mode for the table (compact, default).
+      },
+      "chart": {
+        // Chart instance that hits a callback for the JSON data.
+        "callback": "string" // Callback function for the chart.
+      }
+    },
+    "endpointMethod": "GET", // Endpoint method (GET, POST).
+    "endpointHeaders": [
+      {
+        // Endpoint headers.
+        "key": "string",
+        "value": "string"
+      }
+    ],
+    "params": {
+      // URL params to send to the endpoint.
+      "key": "value"
+    },
+    // This allows you the ability to switch between a chart and table directly on the widget
+    // This shows line chart by default
+    "chartView": {
+        "enabled": true,
+        "chartType": "line"
+      }
   },
-  "endpointMethod": "GET", // Endpoint method (GET, POST).
-  "endpointHeaders": [
-    {
-      // Endpoint headers.
-      "key": "string",
-      "value": "string"
-    }
-  ],
-  "params": {
-    // URL params to send to the endpoint (e.g., callback endpoint in "analyst_upgrades_downgrades").
-    "key": "value"
-  },
-  // This allows you the ability to switch between a chart and table directly on the widget
-  // This shows line chart by default
-  "chartView": {
-      "enabled": true,
-      "chartType": "line"
-    }
+  "widget2": {
+    "name": "string",
+    "description": "string",
+    "endpoint": "string",
+    ...
+  }
 }
 ```
 

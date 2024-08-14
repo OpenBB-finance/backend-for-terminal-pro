@@ -28,7 +28,6 @@
     },
     "data": {
       "table": {
-        "index": "name",
         "showAll": true,
         "columnsDefs": [
           {
