@@ -1,0 +1,21 @@
+{
+  "large_dataframe": {
+    "name": "ArcticDB Large Dataframe",
+    "description": "ArcticDB Large Dataframe",
+    "category": "ArcticDB",
+    "searchCategory": "Sample",
+    "widgetType": "individual",
+    "widgetId": "large_dataframe",
+    "endpoint": "large_dataframe",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "date",
+        "showAll": true
+      }
+    }
+  }
+}
