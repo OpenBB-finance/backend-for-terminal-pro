@@ -3,7 +3,7 @@
     "name": "Elastic example",
     "description": "Elastic example bulk documents",
     "category": "economy",
-    "searchCategory": "economy",
+    "subCategory": "Elastic",
     "endpoint": "elastic_example",
     "gridData": {
       "w": 20,

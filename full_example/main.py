@@ -68,6 +68,30 @@ def get_chains():
         content={"error": response.text}, status_code=response.status_code
     )
 
+@app.get("/historical_chains")
+def get_historical_chains(chain: str = None):
+    """Get historical TVL of a chain using Defi LLama"""
+
+    if chain is None:
+        chain = "Ethereum"
+    response = requests.get(f'https://api.llama.fi/v2/historicalChainTvl/{chain}')
+
+    if response.status_code == 200:
+        return response.json()
+
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
+    )
+
+
+@app.get("/show_example_params")
+def show_example_params(datePicker1: str = None, textBox1: str = None, daysPicker1: int = 1):
+    """Show example of how to use parameters in the URL"""
+
+
+    return {"datePicker1": datePicker1, "textBox1": textBox1, "daysPicker1": daysPicker1}
+
 
 @app.get("/chains_table")
 def chains_table():
