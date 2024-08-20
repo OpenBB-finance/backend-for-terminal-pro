@@ -1,0 +1,59 @@
+{
+  "large_dataframe": {
+    "name": "ArcticDB Large dataframe1",
+    "description": "ArcticDB Large dataframe1",
+    "category": "ArcticDB",
+    "searchCategory": "Sample",
+    "widgetType": "individual",
+    "widgetId": "large_dataframe",
+    "endpoint": "large_dataframe",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "date",
+        "showAll": true
+      }
+    }
+  },
+  "large_dataframe2": {
+    "name": "ArcticDB Large dataframe2",
+    "description": "ArcticDB Large dataframe2",
+    "category": "ArcticDB",
+    "searchCategory": "Sample",
+    "widgetType": "individual",
+    "widgetId": "large_dataframe2",
+    "endpoint": "large_dataframe2",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "date",
+        "showAll": true
+      }
+    }
+  },
+  "large_dataframe3": {
+    "name": "ArcticDB Large dataframe3",
+    "description": "ArcticDB Large dataframe3",
+    "category": "ArcticDB",
+    "searchCategory": "Sample",
+    "widgetType": "individual",
+    "widgetId": "large_dataframe3",
+    "endpoint": "large_dataframe3",
+    "gridData": {
+      "w": 20,
+      "h": 5
+    },
+    "data": {
+      "table": {
+        "index": "date",
+        "showAll": true
+      }
+    }
+  }
+}
