@@ -50,15 +50,17 @@ Each Integration below has a folder which contains an example of different imple
 
 | Integration | Description |
 | ----------- | ----------- |
-| [Full Example](/plotly_example/README.md) | Example of Widgets with a graph returned and tables |
+| [Full Example](/plotly_example/README.md) | A good example of widgets with a graph returned and tables with parameters |
 | [ClickHouse](/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
 | [Supabase](/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
 | [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
 | [ElasticSearch](/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
+| [ArticDB](/articdb_python/README.md) | Using ArticDB to add data to a widget. |
+
 
 ## Getting Started
 
-1. Go into the folder you want to run and read the `README.md` file with instructions.
+1. Go into the folder you want to run (we recommend the "Full Example") and read the `README.md` file with instructions.
 
 2. Run `pip install -r requirements.txt`
 
@@ -93,7 +95,7 @@ This file is responsible for running the FastAPI with endpoints that will be con
 
   </details>
 
-* Creates remaining endpoints that retrieve data that will be consumed by the Terminal Pro
+* Creates remaining endpoints that retrieve data that will be consumed by OpenBB Terminal Pro
 
 ### widgets.json
 
@@ -122,162 +124,7 @@ Also note that the key must be unique.
 }
 ```
 
-  </details>
-
-### Passing Params (Table Only)
-
-To pass params in the widget, check out the example below:
-
-You can see we set our endpoint to take the symbol param and then handle it to pass to the API. In our example,
-we hit a unique endpoint, but the URL request ultimately looks like this against our API: `/get_options?symbol=AMZN`.
-
-  <details>
-      <summary>main.py</summary>
-
-```python
-@app.get("/get_options")
-def get_options(symbol: str):
-    """Get options data"""
-
-    response = requests.get(f'https://test.com/options/flow/{symbol}')
-
-    if response.status_code == 200:
-        data = response.json()
-        return data
-```
-
- </details>
-
-   <details>
-      <summary>widgets.json</summary>
-
-```jsonc
-{
-  "get_options": {
-    "name": "Options Data",
-    "description": "Options Data from Source",
-    "category": "options",
-    "searchCategory": "options",
-    "widgetType": "options",
-    "params": { "symbol": "", "optional": { "interval": [1, 2, 3, 4, 5] } }, //interval isn't needed here just showing other ways to pass more params
-    // another example is "params": { "symbol": "", "date": {"$currentDate-1d"} }, - which gives you a date picker to send - you can pass just a date here or we offer
-    // the ability to pass - ("h" | "d" | "D" | "w" | "M" | "y") along with $currentDate to set a date a dynamic date
-    // note - symbol and date are passed outside of optional
-    "endpoint": "get_options",
-    "gridData": {
-      "w": 20,
-      "h": 5
-    },
-    "data": {
-      "table": {
-        "showAll": true, // show all data from the resp in a table
-        "index": "symbol" // name of the field for the index
-      }
-    }
-  }
-}
-
-```
-
- </details>
-
-This then allows us to use the pass the ticker to the endpoint along with any other optional params you need.
-
-## Advanced Configurations
-
-Each widget can support a wide range of configurations. Some examples include - changing the initial size of a widget, adding a datakey to parse nested JSON, changing column formatting and much more.
-The JSON below illustrates the additional settings possible:
-
-<details>
-    <summary>JSON Configurations</summary>
-
-```jsonc
-{
-  "widget" : { // must be unique in your widgets.json
-    // required properties
-    "name": "string", // Name of the widget in the list the user sees. Displayed on top left of widget.
-    "description": "string", // Description to show to the user on the info button and on the search/add widget menu.
-    "endpoint": "string", // Endpoint for the widget data.
-    // optional properties
-    "category": "string", // Category to show the widget under the widget search. If you pass a category we don't have it will make one. Default : My Widgets
-    "sub_category": "string", // Sub category to show in the widget search. Default : None
-    "source": ["source"], // sources for the advanced widget - you can pass multiple here
-    "gridData": {
-      // Grid data configuration for the widget. How large you want the widget to be on initial render
-      "x": 0, // Horizontal grid position.
-      "y": 0, // Vertical grid position.
-      "w": 0, // Width for the widget in the grid.
-      "h": 0, // Height for the widget in the grid.
-      "minH": 0, // Minimum height.
-      "minW": 0, // Minimum width.
-      "maxH": 0, // Maximum height.
-      "maxW": 0, // Maximum width.
-      "static": false, // Indicates if the widget is static and cannot be moved. Default : false
-      "isDraggable": true // Specifies if the widget can be dragged. Default : true
-    },
-    "storage": {
-      // Storage for the widget that doesn't fit in the other fields.
-      "key": "value"
-    },
-    "defaultViz" : "table", // Default visualization for the widget. Can be one of table or chart (default : table)
-    "type": "string", // Main widget type (chart, table, note, custom).
-    "data": {
-      "dataKey": "string", // Key for the data.
-      "table": {
-        // Configurations for the Table
-        "enableCharts": true, // Allow charting to work from the widget table (default: true)
-        "showAll": true, // Indicates if all data should be shown.
-        "transpose": true, // Indicates if the table should be transposed.
-        "columnsDefs": [
-          {
-            // Configuration for table columns.
-            "field": "string", // Field name from the JSON data.
-            "headerName": "string", // Header name for the column.
-            "chartDataType": "string", // Chart data type (category, series, time, excluded).
-            "cellDataType": "string", // Cell data type (text, number, boolean, date, dateString, object).
-            "formatterFn": "string", // Formatter function (int, bigInt, etc.).
-            "renderFn": "string", // Render function (green, red, titleCase, etc.).
-            "width": 0, // Width of the column.
-            "hide": true, // Indicates if the column should be hidden.
-          }
-        ],
-        "mode": "string", // Display mode for the table (light, dark).
-        "density": "string", // Density mode for the table (compact, default).
-      },
-      "chart": {
-        // Chart instance that hits a callback for the JSON data.
-        "callback": "string" // Callback function for the chart.
-      }
-    },
-    "endpointMethod": "GET", // Endpoint method (GET, POST).
-    "endpointHeaders": [
-      {
-        // Endpoint headers.
-        "key": "string",
-        "value": "string"
-      }
-    ],
-    "params": {
-      // URL params to send to the endpoint.
-      "key": "value"
-    },
-    // This allows you the ability to switch between a chart and table directly on the widget
-    // This shows line chart by default
-    "chartView": {
-        "enabled": true,
-        "chartType": "line"
-      }
-  },
-  "widget2": {
-    "name": "string",
-    "description": "string",
-    "endpoint": "string",
-    ...
-  }
-}
-```
-
-</details>
+For more examples on what you can pass and setting up your own backend - you can head to our documentation at <https://docs.openbb.co/pro>.
 
 ## Additional Configurations / Troubleshooting
 
