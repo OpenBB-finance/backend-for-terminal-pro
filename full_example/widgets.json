@@ -45,6 +45,8 @@
         "paramName": "daysPicker1",
         "value": "1",
         "label": "Days",
+        "type": "text",
+        "multiSelect": true,
         "description": "Number of days to look back",
         "options": [
           {

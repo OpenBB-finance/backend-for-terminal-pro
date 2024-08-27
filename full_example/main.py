@@ -86,11 +86,11 @@ def get_historical_chains(chain: str = None):
 
 
 @app.get("/show_example_params")
-def show_example_params(datePicker1: str = None, textBox1: str = None, daysPicker1: int = 1):
+def show_example_params(datePicker1: str = None, textBox1: str = None, daysPicker1: str = "1"):
     """Show example of how to use parameters in the URL"""
 
 
-    return {"datePicker1": datePicker1, "textBox1": textBox1, "daysPicker1": daysPicker1}
+    return {"datePicker1": datePicker1, "textBox1": textBox1, "daysPicker1": daysPicker1.split(",")}
 
 
 @app.get("/chains_table")
