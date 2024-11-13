@@ -1,0 +1,69 @@
+{
+    "cybersyn_severe_weather_days_in_florida": {
+        "name": "Severe Weather Days in Florida",
+        "description": "This widget shows the number of severe weather days in Florida.",
+        "category": "economy",
+        "searchCategory": "economy",
+        "widgetType": "individual",
+        "params": {
+            "optional": {
+                "Databases": [
+                    "SNOWFLAKE_SAMPLE_DATA"
+                ],
+                "Schema": [
+                    "TPCH_SF1",
+                    "TPCH_SF1000",
+                    "TPCDS_SF10TCL",
+                    "TPCDS_SF100TCL",
+                    "TPCH_SF10",
+                    "TPCH_SF100"
+                ],
+                "Views": [
+                    "SHIP_MODE",
+                    "WEB_RETURNS",
+                    "STORE_SALES",
+                    "COMMIT",
+                    "WEB_SITE",
+                    "PARTSUPP",
+                    "INCOME_BAND",
+                    "ITEM",
+                    "HOUSEHOLD_DEMOGRAPHICS",
+                    "TIME_DIM",
+                    "STORE",
+                    "PLATFORM_EVENTS_EXPORT",
+                    "RELEASE",
+                    "CALL_CENTER",
+                    "REASON",
+                    "HUB_EVENTS_EXPORT",
+                    "DATE_DIM",
+                    "WAREHOUSE",
+                    "CATALOG_RETURNS",
+                    "ENRICHED",
+                    "PROMOTION",
+                    "CATALOG_PAGE",
+                    "CATALOG_SALES",
+                    "PART",
+                    "NATION",
+                    "CUSTOMER_DEMOGRAPHICS",
+                    "STORE_RETURNS",
+                    "LINEITEM",
+                    "ORDERS",
+                    "REGION",
+                    "SUPPLIER",
+                    "CUSTOMER",
+                    "INVENTORY"
+                ]
+            }
+        },
+        "endpoint": "cybersyn_severe_weather_days_in_florida",
+        "gridData": {
+            "w": 20,
+            "h": 5
+        },
+        "data": {
+            "table": {
+                "showAll": true
+            }
+        }
+    }
+}

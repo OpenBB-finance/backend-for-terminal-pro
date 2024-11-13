@@ -56,7 +56,7 @@ Each Integration below has a folder which contains an example of different imple
 | [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
 | [ElasticSearch](/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
 | [ArticDB](/articdb_python/README.md) | Using ArticDB to add data to a widget. |
-
+| [Snowflake](/snowflake_python/README.md) | Snowflake is a cloud-based data warehousing platform. (Deprecated : Use Native Integration) |
 
 ## Getting Started
 
