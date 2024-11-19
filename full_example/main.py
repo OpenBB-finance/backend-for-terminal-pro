@@ -95,6 +95,25 @@ def get_historical_chains(chain: str = None):
     )
 
 
+@app.get("/get_chains_list")
+def get_chains_list():
+    """Get list of chains using Defi LLama"""
+    response = requests.get("https://api.llama.fi/v2/chains")
+
+    if response.status_code == 200:
+        data = response.json()
+        # can pass as list of {label, value} for dropdown or list of strings
+        #  [
+        #   {"label": chain.get("name"), "value": chain.get("name")}
+        #   for chain in data if chain.get("name")
+        #  ]
+        return [chain.get("name") for chain in data if chain.get("name")]
+
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
+    )
+
 @app.get("/show_example_params")
 def show_example_params(datePicker1: str = None, textBox1: str = None, daysPicker1: str = "1"):
     """Show example of how to use parameters in the URL"""
