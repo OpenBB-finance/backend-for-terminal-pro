@@ -9,11 +9,6 @@
     "gridData": {
       "w": 20,
       "h": 9
-    },
-    "data": {
-      "chart": {
-        "type": "bar"
-      }
     }
   },
   "show_example_params": {
@@ -86,9 +81,96 @@
     "params": [
       {
         "paramName": "chain",
+        "description": "Select a chain to get historical TVL",
         "value": "Ethereum",
         "label": "Chain",
-        "type": "text"
+        "type": "text",
+        "options": [
+          {
+            "value": "Bitcoin",
+            "label": "Bitcoin"
+          },
+          {
+            "value": "Ethereum",
+            "label": "Ethereum"
+          },
+          {
+            "value": "Binance",
+            "label": "Binance"
+          },
+          {
+            "value": "Solana",
+            "label": "Solana"
+          },
+          {
+            "value": "Doge",
+            "label": "Doge"
+          },
+          {
+            "value": "Arbitrum",
+            "label": "Arbitrum"
+          },
+          {
+            "value": "Ripple",
+            "label": "Ripple"
+          },
+          {
+            "value": "Tron",
+            "label": "Tron"
+          },
+          {
+            "value": "Optimism",
+            "label": "Optimism"
+          },
+          {
+            "value": "Base",
+            "label": "Base"
+          },
+          {
+            "value": "Avalanche",
+            "label": "Avalanche"
+          },
+          {
+            "value": "Polkadot",
+            "label": "Polkadot"
+          },
+          {
+            "value": "Near",
+            "label": "Near"
+          },
+          {
+            "value": "Litecoin",
+            "label": "Litecoin"
+          },
+          {
+            "value": "Polygon",
+            "label": "Polygon"
+          },
+          {
+            "value": "Algorand",
+            "label": "Algorand"
+          },
+          {
+            "value": "Manta",
+            "label": "Manta"
+          },
+          {
+            "value": "Starknet",
+            "label": "Starknet"
+          },
+          {
+            "value": "ZKsync Era",
+            "label": "ZKsync Era"
+          },
+          {
+            "value": "Fantom",
+            "label": "Fantom"
+          },
+          {
+            "value": "Aptos",
+            "label": "Aptos"
+          }
+        ]
       }
     ],
     "data": {
@@ -178,6 +260,8 @@
           {
             "headerName": "Change",
             "field": "change",
+            "formatFn": "percent",
+            "renderFn": "greenRed",
             "chartDataType": "series"
           }
         ]
@@ -226,6 +310,8 @@
           {
             "headerName": "Change",
             "field": "change",
+            "formatFn": "percent",
+            "renderFn": "greenRed",
             "chartDataType": "series"
           }
         ]
