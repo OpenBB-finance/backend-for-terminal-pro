@@ -1,10 +1,12 @@
 import json
 from pathlib import Path
+from typing import Annotated
 
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from utils import get_snowflake_connection
+from snowflake.connector import SnowflakeConnection
 
 app = FastAPI()
 
@@ -46,10 +48,12 @@ def get_widgets():
 # This endpoint will serve to get all available schemas
 # We will use this to populate the dropdown in the view widget
 @app.get("/schema")
-def get_schema(connection=Depends(get_snowflake_connection)):
-    cursor = connection.cursor()
-    cursor.execute("SHOW SCHEMAS")
-    return JSONResponse(content=[r[1] for r in cursor.fetchall()])
+def get_schema(
+    connection: Annotated[SnowflakeConnection, Depends(get_snowflake_connection)]
+):
+    with connection.cursor() as cursor:
+        cursor.execute("SHOW SCHEMAS")
+        return JSONResponse(content=[r[1] for r in cursor.fetchall()])
 
 
 # This endpoint returns all the views in a given schema
