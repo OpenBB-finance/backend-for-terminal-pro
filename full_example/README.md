@@ -4,6 +4,8 @@ This utilizes data from <https://api.llama.fi/v2/chain> and other sources to ren
 
 For more examples on what you can pass and setting up your own backend - you can head to our documentation at <https://docs.openbb.co/pro>.
 
+This example also includes a widget that calls an endpoint to fetch a list of values and then renders it as a dropdown.
+
 ## Step 1 - Configure your main.py
 
 In [main.py](/full_example/main.py) configure your FastAPI instance to have an endpoint returning json for each widget you want to render.

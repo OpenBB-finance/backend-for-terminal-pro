@@ -78,6 +78,7 @@ def get_chains():
         content={"error": response.text}, status_code=response.status_code
     )
 
+
 @app.get("/historical_chains")
 def get_historical_chains(chain: str = None):
     """Get historical TVL of a chain using Defi LLama"""
@@ -94,7 +95,7 @@ def get_historical_chains(chain: str = None):
         content={"error": response.text}, status_code=response.status_code
     )
 
-
+# Fetching list of chains for a parameter in the widget
 @app.get("/get_chains_list")
 def get_chains_list():
     """Get list of chains using Defi LLama"""
