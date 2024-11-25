@@ -1,8 +1,8 @@
-# Backend examples for the OpenBB Terminal Pro
+# Backend examples for OpenBB Pro
 
 ## Introduction
 
-An OpenBB Terminal Pro Custom Backend is a versatile way to connect your data to widgets inside OpenBB Terminal Pro. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Terminal Pro widgets can read and then display any data.
+An OpenBB Pro Custom Backend is a versatile way to connect your data to widgets inside OpenBB Pro. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Pro widgets can read and then display any data.
 
 Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
 
@@ -42,7 +42,7 @@ The Main tenants are:
 
 3. **CORS Enabled** : If hosting locally you must enable [CORS](https://fastapi.tiangolo.com/tutorial/cors/).
 
-4. **Adding Authentication (optional)** : If your backend requires authentication we offer the ability to set a query param or header when you connect to it through OpenBB Terminal Pro. These values are sent on every request when configured. If you require another method - please reach out to us.
+4. **Adding Authentication (optional)** : If your backend requires authentication we offer the ability to set a query param or header when you connect to it through OpenBB Pro. These values are sent on every request when configured. If you require another method - please reach out to us.
 
 ## Supported Integrations and Templates
 
@@ -66,19 +66,19 @@ Each Integration below has a folder which contains an example of different imple
 
 3. Run `uvicorn main:app --port 5050` to start your backend.
 
-4. Create a Custom Backend on OpenBB Terminal Pro with the link to your API URL (e.g., <http://localhost:5050>).
+4. Create a Custom Backend on OpenBB Pro with the link to your API URL (e.g., <http://localhost:5050>).
 
 ## Code explained
 
 ### main.py
 
-This file is responsible for running the FastAPI with endpoints that will be consumed by the OpenBB Terminal Pro.
+This file is responsible for running the FastAPI with endpoints that will be consumed by OpenBB Pro.
 
-* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Terminal Pro link.
+* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Pro link.
 
 * Initializes FastAPI with `app = FastAPI()`
 
-* Ensures that there's a `/widgets.json` file that the OpenBB Terminal Pro can use to configure the widgets configured
+* Ensures that there's a `/widgets.json` file that OpenBB Pro can use to configure the widgets configured
 
   <details>
       <summary>Endpoint to fetch widgets.json file</summary>
@@ -86,7 +86,7 @@ This file is responsible for running the FastAPI with endpoints that will be con
   ```python
   @app.get("/widgets.json")
   def get_widgets():
-      """Widgets configuration file for the OpenBB Terminal Pro"""
+      """Widgets configuration file for OpenBB Pro"""
       file_path = "widgets.json"
       with open(file_path, "r") as file:
           data = json.load(file)
@@ -95,7 +95,7 @@ This file is responsible for running the FastAPI with endpoints that will be con
 
   </details>
 
-* Creates remaining endpoints that retrieve data that will be consumed by OpenBB Terminal Pro
+* Creates remaining endpoints that retrieve data that will be consumed by OpenBB Pro
 
 ### widgets.json
 
@@ -114,8 +114,8 @@ Also note that the key must be unique.
     "name": "Financial data supabase", // required - Name of the Widget
     "description": "Financial data from supabase", // required - Description of the Widget
     "endpoint": "financial_data_from_supabase", // required - What endpoint to hit from the main.py file
-    "category": "economy", // optional - what category to show under on the search inside OpenBB Terminal Pro
-    "searchCategory": "economy", // optional - what category to show under on the search inside OpenBB Terminal Pro
+    "category": "economy", // optional - what category to show under on the search inside OpenBB Pro
+    "searchCategory": "economy", // optional - what category to show under on the search inside OpenBB Pro
     "gridData": { // optional - how large you want the widget to be on the dashboard
       "w": 20,
       "h": 5
