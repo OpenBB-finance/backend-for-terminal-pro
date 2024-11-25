@@ -1,0 +1,73 @@
+{
+  "stock_price": {
+    "name": "Stock Price Data",
+    "description": "Historical stock price data from Snowflake",
+    "category": "stocks",
+    "searchCategory": "stocks",
+    "endpoint": "stock/{ticker}",
+    "defaultViz": "table",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "ticker",
+        "value": "AAPL",
+        "label": "Ticker",
+        "description": "Stock ticker symbol",
+        "type": "text"
+      }
+    ],
+    "data": {
+      "table": {
+        "showAll": true,
+        "chartView": {
+          "enabled": true,
+          "chartType": "line"
+        },
+        "columnsDefs": [
+          {
+            "headerName": "Date",
+            "field": "date"
+          },
+          {
+            "headerName": "Close",
+            "field": "close"
+          }
+        ]
+      }
+    }
+  },
+  "snowflake_views": {
+    "name": "Snowflake Views",
+    "description": "Browse available views in Snowflake schemas",
+    "category": "database",
+    "searchCategory": "database",
+    "endpoint": "views/{schema}",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "schema",
+        "label": "Schema",
+        "description": "Select a Snowflake schema",
+        "type": "endpoint",
+        "optionsEndpoint": "schema"
+      }
+    ],
+    "data": {
+      "table": {
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "View",
+            "field": "view"
+          }
+        ]
+      }
+    }
+  }
+}

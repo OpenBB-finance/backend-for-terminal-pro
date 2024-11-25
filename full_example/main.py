@@ -7,6 +7,7 @@ import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from plotly_templates import dark_template
 
 app = FastAPI()
 
@@ -33,12 +34,12 @@ ROOT_PATH = Path(__file__).parent.resolve()
 
 @app.get("/")
 def read_root():
-    return {"Info": "Plotly example for the OpenBB Terminal Pro"}
+    return {"Info": "Full example for OpenBB Custom Backend"}
 
 
 @app.get("/widgets.json")
 def get_widgets():
-    """Widgets configuration file for the OpenBB Terminal Pro"""
+    """Widgets configuration file for the OpenBB Custom Backend"""
     return JSONResponse(
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
@@ -54,11 +55,20 @@ def get_chains():
         # Create a DataFrame from the JSON data
         df = pd.DataFrame(response.json())
 
+        # Sort the DataFrame by 'tvl' in descending order and select the top 30
+        top_30_df = df.sort_values(by='tvl', ascending=False).head(30)
+
         # Create a bar chart using Plotly
         figure = go.Figure(
-            layout=dict(yaxis=dict(title="TVL"), margin=dict(b=50, l=10, r=40, t=0))
+            data=[go.Bar(x=top_30_df["tokenSymbol"], y=top_30_df["tvl"])],
+            # Apply the dark template - see plotly_templates.py
+            layout=go.Layout(
+                template=dark_template,
+                title="Top 30 Chains by TVL",
+                xaxis_title="Token Symbol",
+                yaxis_title="Total Value Locked (TVL)"
+            )
         )
-        figure.add_bar(x=df["tokenSymbol"], y=df["tvl"])
 
         # return the plotly json
         return json.loads(figure.to_json())
@@ -67,6 +77,7 @@ def get_chains():
     return JSONResponse(
         content={"error": response.text}, status_code=response.status_code
     )
+
 
 @app.get("/historical_chains")
 def get_historical_chains(chain: str = None):
@@ -84,11 +95,29 @@ def get_historical_chains(chain: str = None):
         content={"error": response.text}, status_code=response.status_code
     )
 
+# Fetching list of chains for a parameter in the widget
+@app.get("/get_chains_list")
+def get_chains_list():
+    """Get list of chains using Defi LLama"""
+    response = requests.get("https://api.llama.fi/v2/chains")
+
+    if response.status_code == 200:
+        data = response.json()
+        # can pass as list of {label, value} for dropdown or list of strings
+        #  [
+        #   {"label": chain.get("name"), "value": chain.get("name")}
+        #   for chain in data if chain.get("name")
+        #  ]
+        return [chain.get("name") for chain in data if chain.get("name")]
+
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
+    )
 
 @app.get("/show_example_params")
 def show_example_params(datePicker1: str = None, textBox1: str = None, daysPicker1: str = "1"):
     """Show example of how to use parameters in the URL"""
-
 
     return {"datePicker1": datePicker1, "textBox1": textBox1, "daysPicker1": daysPicker1.split(",")}
 

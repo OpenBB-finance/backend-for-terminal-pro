@@ -45,12 +45,12 @@ lib = arctic.get_library('sample', create_if_missing=True)
 
 @app.get("/")
 def read_root():
-    return {"Info": "ArcticDB backend template for the OpenBB Terminal Pro"}
+    return {"Info": "ArcticDB backend template for OpenBB Pro"}
 
 
 @app.get("/widgets.json")
 def get_widgets():
-    """Widgets configuration file for the OpenBB Terminal Pro"""
+    """Widgets configuration file for OpenBB Pro"""
     return JSONResponse(
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )

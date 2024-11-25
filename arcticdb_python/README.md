@@ -1,6 +1,6 @@
 # ArcticDB Python
 
-This example will focus on everything that relates with ArcticDB in order to create a backend in Python for the OpenBB Terminal Pro. For more information, read our main [README.md](/README.md).
+This example will focus on everything that relates with ArcticDB in order to create a backend in Python for OpenBB Pro. For more information, read our main [README.md](/README.md).
 
 ## 1. Get started with ArcticDB
 

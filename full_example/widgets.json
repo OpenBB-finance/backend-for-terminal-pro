@@ -9,11 +9,6 @@
     "gridData": {
       "w": 20,
       "h": 9
-    },
-    "data": {
-      "chart": {
-        "type": "bar"
-      }
     }
   },
   "show_example_params": {
@@ -86,9 +81,11 @@
     "params": [
       {
         "paramName": "chain",
+        "description": "Select a chain to get historical TVL",
         "value": "Ethereum",
         "label": "Chain",
-        "type": "text"
+        "type": "endpoint",
+        "optionsEndpoint": "get_chains_list"
       }
     ],
     "data": {
@@ -178,6 +175,8 @@
           {
             "headerName": "Change",
             "field": "change",
+            "formatFn": "percent",
+            "renderFn": "greenRed",
             "chartDataType": "series"
           }
         ]
@@ -226,6 +225,8 @@
           {
             "headerName": "Change",
             "field": "change",
+            "formatFn": "percent",
+            "renderFn": "greenRed",
             "chartDataType": "series"
           }
         ]

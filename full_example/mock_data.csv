@@ -2,3 +2,20 @@ ticker,name,price,marketCap,change
 AAPL,Apple Inc.,150.50,2500000000,1.25
 GOOGL,Alphabet Inc.,2800.75,1900000000,-0.75
 MSFT,Microsoft Corporation,300.25,220000000,0.98
+AMZN,Amazon.com Inc.,3400.50,1700000000,1.10
+TSLA,Tesla Inc.,720.30,800000000,2.50
+FB,Meta Platforms Inc.,355.60,900000000,-1.20
+NFLX,Netflix Inc.,590.70,250000000,-0.50
+NVDA,NVIDIA Corporation,220.40,600000000,1.75
+BRK.B,Berkshire Hathaway Inc.,280.00,500000000,0.60
+JNJ,Johnson & Johnson,165.30,450000000,0.40
+V,Visa Inc.,230.50,400000000,0.90
+PG,Procter & Gamble Co.,140.20,350000000,-0.30
+UNH,UnitedHealth Group Inc.,400.00,300000000,1.00
+DIS,The Walt Disney Company,180.50,250000000,-0.80
+PYPL,PayPal Holdings Inc.,270.60,200000000,1.20
+MA,Mastercard Incorporated,350.70,150000000,0.50
+INTC,Intel Corporation,55.80,100000000,-0.10
+KO,The Coca-Cola Company,60.40,90000000,0.30
+PEP,PepsiCo Inc.,150.00,80000000,0.20
+CSCO,Cisco Systems Inc.,45.50,70000000,-0.05
