@@ -28,6 +28,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 Edit the `.env` file with your Snowflake credentials. By default, this example connects to a specific database, but the connector can be modified to support multiple databases.
+Your account will look like this: `*.us-east-1.snowflakecomputing.com`.
 
 3. Start the backend server:
 ```bash
