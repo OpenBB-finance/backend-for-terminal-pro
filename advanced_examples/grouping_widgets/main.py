@@ -1,13 +1,9 @@
 import json
 from pathlib import Path
-
-import pandas as pd
-import plotly.graph_objects as go
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from plotly_templates import dark_template
 
 app = FastAPI()
 
@@ -84,7 +80,7 @@ def get_chains_list():
         content={"error": response.text}, status_code=response.status_code
     )
 
-# example of how get advanced dropdown labels
+# example of how get advanced dropdown labels - can change out the get_chains_list endpoint to this one to show advanced dropdown
 @app.get("/get_chains_list_advanced")
 def get_chains_list_advanced():
     """Get list of chains using Defi LLama"""

@@ -83,6 +83,14 @@
         "optionsEndpoint": "get_chains_list"
       },
       {
+        "paramName": "chain2",
+        "description": "Select a chain to get historical TVL",
+        "value": "Ethereum",
+        "label": "Chain",
+        "type": "endpoint",
+        "optionsEndpoint": "get_chains_list_advanced"
+      },
+      {
         "paramName": "tickerPicker",
         "value": "AAPL",
         "label": "Ticker",

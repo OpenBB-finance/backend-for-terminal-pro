@@ -1,12 +1,12 @@
 {
   "chains_plotly": {
-    "name": "Chains chart example",
-    "description": "Get current TVL of all chains and plot it with Plotly!",
-    "category": "crypto",
+    "name": "Chains chart example Plotly",
+    "description": "Get current TVL of all chains and plot it with Plotly",
+    "category": "Crypto",
     "type": "chart",
     "endpoint": "chains",
     "gridData": {
-      "w": 20,
+      "w": 40,
       "h": 9
     }
   },

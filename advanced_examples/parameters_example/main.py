@@ -82,3 +82,27 @@ def get_chains_list():
     return JSONResponse(
         content={"error": response.text}, status_code=response.status_code
     )
+
+
+# example of how get advanced dropdown labels - can change out the get_chains_list endpoint to this one to show advanced dropdown
+@app.get("/get_chains_list_advanced")
+def get_chains_list_advanced():
+    """Get list of chains using Defi LLama"""
+    response = requests.get("https://api.llama.fi/v2/chains")
+
+    if response.status_code == 200:
+        data = response.json()
+        # can pass as list of {label, value} for dropdown or list of strings
+        return [
+            {"label": chain.get("name"), "value": chain.get("name"), "extraInfo":{
+                "description": chain.get("tokenSymbol", "N/A"),
+                "rightOfDescription": chain.get("chainId", "N/A")
+            }}
+            for chain in data if chain.get("name")
+        ]
+
+
+    print(f"Request error {response.status_code}: {response.text}")
+    return JSONResponse(
+        content={"error": response.text}, status_code=response.status_code
+    )

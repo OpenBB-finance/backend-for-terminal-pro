@@ -37,7 +37,7 @@
         "value": "Ethereum",
         "label": "Chain",
         "type": "endpoint",
-        "optionsEndpoint": "get_chains_list_advanced"
+        "optionsEndpoint": "get_chains_list"
       }
     ]
   }
