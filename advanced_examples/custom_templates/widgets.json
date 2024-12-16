@@ -20,7 +20,7 @@
       }
     ]
     },
-    "Widget2": {
+  "Widget2": {
     "name": "Widget 2",
     "description": "Widget 2",
     "category": "stocks",
@@ -41,7 +41,7 @@
       }
     ]
   },
-    "Widget3": {
+  "Widget3": {
     "name": "Widget 3",
     "description": "Widget 3",
     "category": "stocks",

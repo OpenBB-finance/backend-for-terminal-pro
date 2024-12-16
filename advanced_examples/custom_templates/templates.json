@@ -41,9 +41,9 @@
       "groups": [
         {
             "name": "Group 1",
-            "groupById": "tickers",
-            "defaultValue": "MSFT",
-            "widgetIds": ["Widget 1", "Widget 2", "Widget 3"]
+            "groupById": "get_chains_list",
+            "defaultValue": "Ethereum",
+            "widgetIds": ["Widget1", "Widget2", "Widget3"]
         }
       ]
     }

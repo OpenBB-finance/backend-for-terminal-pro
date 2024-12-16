@@ -35,6 +35,14 @@ def get_widgets():
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
 
+## Templates endpoint
+@app.get("/templates.json")
+def get_templates():
+    """Templates configuration file for the OpenBB Custom Backend"""
+    return JSONResponse(
+        content=json.load((Path(__file__).parent.resolve() / "templates.json").open())
+    )
+
 @app.get("/chains_table")
 def chains_table(chain: str = Query(None, description="Chain to filter by")):
     """Get current TVL of all chains using Defi LLama"""
