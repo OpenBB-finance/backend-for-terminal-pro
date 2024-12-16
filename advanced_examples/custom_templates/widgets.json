@@ -1,235 +1,7 @@
 {
-  "chains_plotly": {
-    "name": "Chains chart example",
-    "description": "Get current TVL of all chains and plot it!",
-    "category": "crypto",
-    "searchCategory": "crypto",
-    "type": "chart",
-    "endpoint": "chains",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    }
-  },
-  "show_example_params": {
-    "name": "Example Backend Params",
-    "description": "Show example param options",
-    "category": "New Category",
-    "searchCategory": "Custom",
-    "endpoint": "show_example_params",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    },
-    "params": [
-      {
-        "paramName": "datePicker1",
-        "value": "$currentDate-1d",
-        "label": "Param 1",
-        "description": "I'm a Date Picker!",
-        "type": "date"
-      },
-      {
-        "paramName": "textBox1",
-        "value": "Hello!",
-        "label": "Param 2",
-        "description": "I'm a text input box!",
-        "type": "text"
-      },
-      {
-        "paramName": "TrueFalse",
-        "value": true,
-        "label": "True/False",
-        "description": "I'm a True/False selector!",
-        "type": "boolean"
-      },
-      {
-        "paramName": "daysPicker1",
-        "value": "1",
-        "label": "Days",
-        "type": "text",
-        "multiSelect": true,
-        "description": "Number of days to look back",
-        "options": [
-          {
-            "value": "1",
-            "label": "1"
-          },
-          {
-            "value": "5",
-            "label": "5"
-          },
-          {
-            "value": "10",
-            "label": "10"
-          },
-          {
-            "value": "20",
-            "label": "20"
-          },
-          {
-            "value": "30",
-            "label": "30"
-          }
-        ]
-      }
-    ]
-  },
-  "historical_chains_table": {
-    "name": "Chains Historical table example",
-    "description": "Get historical TVL of a chain using Defi LLama",
-    "category": "crypto",
-    "searchCategory": "crypto",
-    "endpoint": "historical_chains",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    },
-    "params": [
-      {
-        "paramName": "chain",
-        "description": "Select a chain to get historical TVL",
-        "value": "Ethereum",
-        "label": "Chain",
-        "type": "endpoint",
-        "optionsEndpoint": "get_chains_list"
-      }
-    ],
-    "data": {
-      "table": {
-        "showAll": true,
-        "columnsDefs": [
-          {
-            "headerName": "Date",
-            "field": "date",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Total Value Locked",
-            "field": "tvl"
-          }
-        ]
-      }
-    }
-  },
-  "historical_chains_table_advanced_dropdown": {
-    "name": "Chains Historical table example with advanced dropdown",
-    "description": "Get historical TVL of a chain using Defi LLama",
-    "category": "crypto",
-    "searchCategory": "crypto",
-    "endpoint": "historical_chains",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    },
-    "params": [
-      {
-        "paramName": "chain",
-        "description": "Select a chain to get historical TVL",
-        "value": "Ethereum",
-        "label": "Chain",
-        "type": "endpoint",
-        "optionsEndpoint": "get_chains_list_advanced"
-      }
-    ],
-    "data": {
-      "table": {
-        "showAll": true,
-        "columnsDefs": [
-          {
-            "headerName": "Date",
-            "field": "date",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Total Value Locked",
-            "field": "tvl"
-          }
-        ]
-      }
-    }
-  },
-  "chains_table": {
-    "name": "Chains table example",
-    "description": "Get current TVL of all chains using Defi LLama",
-    "category": "crypto",
-    "searchCategory": "crypto",
-    "endpoint": "chains_table",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    },
-    "data": {
-      "table": {
-        "showAll": false,
-        "columnsDefs": [
-            {
-                "headerName": "Name",
-                "field": "name",
-                "chartDataType": "category"
-            },
-            {
-                "headerName": "Total Value Locked",
-                "field": "tvl"
-            },
-            {
-                "headerName": "Token Symbol",
-                "field": "tokenSymbol",
-                "chartDataType": "category"
-            }
-        ]
-    }
-    }
-  },
-  "csvStockMock": {
-    "name": "CSV Mock Data",
-    "description": "Mock CSV Stock Data for OpenBB",
-    "category": "stocks",
-    "searchCategory": "stocks",
-    "endpoint": "csv-data",
-    "gridData": {
-      "w": 20,
-      "h": 9
-    },
-    "data": {
-      "table": {
-        "index": "ticker",
-        "showAll": true,
-        "columnsDefs": [
-          {
-            "headerName": "Ticker",
-            "field": "ticker",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Name",
-            "field": "name",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Price",
-            "field": "price",
-            "chartDataType": "series"
-          },
-          {
-            "headerName": "Market Cap",
-            "field": "marketCap",
-            "chartDataType": "series"
-          },
-          {
-            "headerName": "Change",
-            "field": "change",
-            "formatFn": "percent",
-            "renderFn": "greenRed",
-            "chartDataType": "series"
-          }
-        ]
-      }
-    }
-  },
-  "jsonStockMock": {
-    "name": "Json Mock Data",
-    "description": "Mock json Stock Data for OpenBB - But as a chart by default",
+  "Widget1": {
+    "name": "Widget 1",
+    "description": "Widget 1",
     "category": "stocks",
     "searchCategory": "stocks",
     "endpoint": "json-data",
@@ -237,71 +9,54 @@
       "w": 20,
       "h": 9
     },
-    "data": {
-      "table": {
-        "chartView": {
-          "enabled": true,
-          "chartType": "line"
-        },
-        "index": "ticker",
-        "showAll": true,
-        "columnsDefs": [
-          {
-            "headerName": "Ticker",
-            "field": "ticker",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Name",
-            "field": "name",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Price",
-            "field": "price",
-            "chartDataType": "series"
-          },
-          {
-            "headerName": "Market Cap",
-            "field": "marketCap",
-            "chartDataType": "series"
-          },
-          {
-            "headerName": "Change",
-            "field": "change",
-            "formatFn": "percent",
-            "renderFn": "greenRed",
-            "chartDataType": "series"
-          }
-        ]
-      }
-    }
-
-  },
-  "defi_llama_protocol_details": {
-    "name": "Defi Llama Protocol Details",
-    "description": "Details for a given protocol",
-    "category": "crypto",
-    "type": "markdown",
-    "endpoint": "defi_llama_protocol_details",
-    "gridData": {"w": 20, "h": 9},
-    "source": "Defi Llama",
     "params": [
       {
-        "paramName": "protocol_id",
-        "value": "aave",
-        "label": "Protocol",
-        "type": "text",
-        "description": "Defi Llama ID of the protocol"
+        "paramName": "tickerPicker",
+        "value": "AAPL",
+        "label": "Ticker",
+        "description": "I'm a Ticker Picker!",
+        "type": "ticker"
+      }
+    ]
+    },
+    "Widget2": {
+    "name": "Widget 2",
+    "description": "Widget 2",
+    "category": "stocks",
+    "searchCategory": "stocks",
+    "endpoint": "json-data",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "tickerPicker",
+        "value": "AAPL",
+        "label": "Ticker",
+        "description": "I'm a Ticker Picker!",
+        "type": "ticker"
       }
     ]
   },
-  "test_metric": {
-    "name": "Test Metric",
-    "description": "Test Metric",
-    "category": "test",
-    "endpoint": "test_metric",
-    "gridData": {"w": 5, "h": 5},
-    "type": "metric"
+    "Widget3": {
+    "name": "Widget 3",
+    "description": "Widget 3",
+    "category": "stocks",
+    "searchCategory": "stocks",
+    "endpoint": "json-data",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+  "params": [
+    {
+      "paramName": "tickerPicker",
+      "value": "AAPL",
+      "label": "Ticker",
+        "description": "I'm a Ticker Picker!",
+        "type": "ticker"
+      }
+    ]
   }
 }
