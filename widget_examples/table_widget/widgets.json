@@ -1,0 +1,12 @@
+{
+  "chains_table": {
+    "name": "Chains table example",
+    "description": "Get current TVL of all chains using Defi LLama",
+    "category": "Crypto",
+    "endpoint": "chains_table",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    }
+  }
+}

@@ -4,7 +4,7 @@
     "description": "Get current TVL of all chains and plot it!",
     "category": "crypto",
     "searchCategory": "crypto",
-    "defaultViz": "chart",
+    "type": "chart",
     "endpoint": "chains",
     "gridData": {
       "w": 20,
@@ -35,6 +35,13 @@
         "label": "Param 2",
         "description": "I'm a text input box!",
         "type": "text"
+      },
+      {
+        "paramName": "TrueFalse",
+        "value": true,
+        "label": "True/False",
+        "description": "I'm a True/False selector!",
+        "type": "boolean"
       },
       {
         "paramName": "daysPicker1",
@@ -105,6 +112,43 @@
       }
     }
   },
+  "historical_chains_table_advanced_dropdown": {
+    "name": "Chains Historical table example with advanced dropdown",
+    "description": "Get historical TVL of a chain using Defi LLama",
+    "category": "crypto",
+    "searchCategory": "crypto",
+    "endpoint": "historical_chains",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "chain",
+        "description": "Select a chain to get historical TVL",
+        "value": "Ethereum",
+        "label": "Chain",
+        "type": "endpoint",
+        "optionsEndpoint": "get_chains_list_advanced"
+      }
+    ],
+    "data": {
+      "table": {
+        "showAll": true,
+        "columnsDefs": [
+          {
+            "headerName": "Date",
+            "field": "date",
+            "chartDataType": "category"
+          },
+          {
+            "headerName": "Total Value Locked",
+            "field": "tvl"
+          }
+        ]
+      }
+    }
+  },
   "chains_table": {
     "name": "Chains table example",
     "description": "Get current TVL of all chains using Defi LLama",
@@ -117,24 +161,24 @@
     },
     "data": {
       "table": {
-        "showAll": true,
+        "showAll": false,
         "columnsDefs": [
-          {
-            "headerName": "Name",
-            "field": "name",
-            "chartDataType": "category"
-          },
-          {
-            "headerName": "Total Value Locked",
-            "field": "tvl"
-          },
-          {
-            "headerName": "Token Symbol",
-            "field": "tokenSymbol",
-            "chartDataType": "category"
-          }
+            {
+                "headerName": "Name",
+                "field": "name",
+                "chartDataType": "category"
+            },
+            {
+                "headerName": "Total Value Locked",
+                "field": "tvl"
+            },
+            {
+                "headerName": "Token Symbol",
+                "field": "tokenSymbol",
+                "chartDataType": "category"
+            }
         ]
-      }
+    }
     }
   },
   "csvStockMock": {
@@ -232,5 +276,32 @@
         ]
       }
     }
+
+  },
+  "defi_llama_protocol_details": {
+    "name": "Defi Llama Protocol Details",
+    "description": "Details for a given protocol",
+    "category": "crypto",
+    "type": "markdown",
+    "endpoint": "defi_llama_protocol_details",
+    "gridData": {"w": 20, "h": 9},
+    "source": "Defi Llama",
+    "params": [
+      {
+        "paramName": "protocol_id",
+        "value": "aave",
+        "label": "Protocol",
+        "type": "text",
+        "description": "Defi Llama ID of the protocol"
+      }
+    ]
+  },
+  "test_metric": {
+    "name": "Test Metric",
+    "description": "Test Metric",
+    "category": "test",
+    "endpoint": "test_metric",
+    "gridData": {"w": 5, "h": 5},
+    "type": "metric"
   }
 }

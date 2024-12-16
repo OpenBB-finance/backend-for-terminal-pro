@@ -1,0 +1,10 @@
+{
+  "test_metric": {
+    "name": "Metric Widget",
+    "description": "A metric widget example",
+    "category": "Test",
+    "endpoint": "test_metric",
+    "gridData": {"w": 5, "h": 5},
+    "type": "metric"
+  }
+}

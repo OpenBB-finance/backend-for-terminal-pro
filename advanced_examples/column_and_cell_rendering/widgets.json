@@ -1,0 +1,55 @@
+{
+    "custom_widget": {
+        "name": "Custom Widget Example",
+        "description": "A widget to demonstrate custom configuration",
+        "endpoint": "custom-endpoint",
+        "data": {
+            "dataKey": "stocks",
+            "columnsDefs": [
+                {
+                    "field": "ticker",
+                    "headerName": "Ticker",
+                    "chartDataType": "category",
+                    "cellDataType": "text",
+                        "formatterFn": "none",
+                        "renderFn": "titleCase",
+                        "width": 100,
+                        "maxWidth": 200,
+                        "minWidth": 50,                      
+                        "pinned": "left"
+                    },
+                    {
+                        "field": "name",
+                        "headerName": "Name",
+                        "chartDataType": "category",
+                        "cellDataType": "text",
+                        "width": 150
+                    },
+                    {
+                        "field": "price",
+                        "headerName": "Price",
+                        "chartDataType": "series",
+                        "cellDataType": "number",
+                        "width": 150
+                    },
+                    {
+                        "field": "marketCap",
+                        "headerName": "Market Cap",
+                        "chartDataType": "series",
+                        "cellDataType": "number",
+                        "formatterFn": "int",
+                        "width": 150
+                    },
+                    {
+                        "field": "change",
+                        "headerName": "Change %",
+                        "chartDataType": "series",
+                        "cellDataType": "number",
+                        "formatterFn": "int",
+                        "renderFn": "greenRed",
+                        "width": 150
+                    }
+                ]
+            }
+    }
+}
