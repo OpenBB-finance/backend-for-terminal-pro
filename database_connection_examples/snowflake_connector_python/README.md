@@ -32,7 +32,7 @@ Your account will look like this: `*.us-east-1.snowflakecomputing.com`.
 
 3. Start the backend server:
 ```bash
-uvicorn main:app --reload --port 12345
+uvicorn main:app --reload --port 5401
 ```
 
 ## Documentation

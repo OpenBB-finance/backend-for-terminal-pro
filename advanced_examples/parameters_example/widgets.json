@@ -1,0 +1,102 @@
+{
+  "show_example_params": {
+    "name": "Example Backend Params",
+    "description": "Show example param options",
+    "category": "New Category",
+    "searchCategory": "Custom",
+    "endpoint": "show_example_params",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "datePicker1",
+        "value": "$currentDate-1d",
+        "label": "Param 1",
+        "description": "I'm a Date Picker!",
+        "type": "date"
+      },
+      {
+        "paramName": "textBox1",
+        "value": "Hello!",
+        "label": "Param 2",
+        "description": "I'm a text input box!",
+        "type": "text"
+      },
+      {
+        "paramName": "TrueFalse",
+        "value": true,
+        "label": "True/False",
+        "description": "I'm a True/False selector!",
+        "type": "boolean"
+      },
+      {
+        "paramName": "daysPicker1",
+        "value": "1",
+        "label": "Days",
+        "type": "text",
+        "multiSelect": true,
+        "description": "Number of days to look back",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "10",
+            "label": "10"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "30",
+            "label": "30"
+          }
+        ]
+      }
+    ]
+  },
+  "historical_chains_table": {
+    "name": "Chains Historical table example",
+    "description": "Get historical TVL of a chain using Defi LLama",
+    "category": "crypto",
+    "searchCategory": "crypto",
+    "endpoint": "historical_chains",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "chain",
+        "description": "Select a chain to get historical TVL",
+        "value": "Ethereum",
+        "label": "Chain",
+        "type": "endpoint",
+        "optionsEndpoint": "get_chains_list"
+      },
+      {
+        "paramName": "chain2",
+        "description": "Select a chain to get historical TVL",
+        "value": "Ethereum",
+        "label": "Chain",
+        "type": "endpoint",
+        "optionsEndpoint": "get_chains_list_advanced"
+      },
+      {
+        "paramName": "tickerPicker",
+        "value": "AAPL",
+        "label": "Ticker",
+        "description": "I'm a Ticker Picker!",
+        "type": "ticker"
+      }
+    ]
+  }
+}

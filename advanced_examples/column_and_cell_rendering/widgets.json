@@ -1,0 +1,51 @@
+{
+    "custom_widget": {
+        "name": "Custom Widget Example",
+        "description": "A widget to demonstrate custom configuration",
+        "endpoint": "json-data",
+        "data": {
+            "dataKey": "stocks",
+            "table": {
+                "columnsDefs": [
+                    {
+                        "field": "ticker",
+                        "headerName": "Ticker",
+                        "chartDataType": "category",
+                        "cellDataType": "text",
+                        "formatterFn": "none",
+                        "renderFn": "titleCase",
+                        "maxWidth": 600,                    
+                        "pinned": "left"
+                    },
+                    {
+                        "field": "name",
+                        "headerName": "Name",
+                        "chartDataType": "category",
+                        "cellDataType": "text"
+                    },
+                    {
+                        "field": "price",
+                        "headerName": "Price",
+                        "chartDataType": "series",
+                        "cellDataType": "number"
+                    },
+                    {
+                        "field": "marketCap",
+                        "headerName": "Market Cap",
+                        "chartDataType": "series",
+                        "cellDataType": "number",
+                        "formatterFn": "none"
+                    },
+                    {
+                        "field": "change",
+                        "headerName": "Change %",
+                        "chartDataType": "series",
+                        "cellDataType": "number",
+                        "formatterFn": "percent",
+                        "renderFn": "greenRed"
+                    }
+                ]
+            }
+        }
+    }
+}
