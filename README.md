@@ -58,11 +58,15 @@ Each Integration below has a folder which contains an example of different imple
 | [Markdown Widget](/widget_examples/markdown_widget) | A good example of widgets with a markdown returned and tables with parameters |
 | [Metric Widget](/widget_examples/metric_widget) | A good example of widgets with a metric returned and tables with parameters |
 
+| Integration | Description |
+| ----------- | ----------- |
 | Advanced Examples | Description |
 | [Parameters Widget](/advanced_examples/parameters_example) | A good example of widgets with parameters |
 | [Grouping Widgets](/advanced_examples/grouping_widgets) | A good example of widgets with grouped widgets |
 | [Column and Cell Rendering](/advanced_examples/column_and_cell_rendering) | A good example of widgets with custom column and cell rendering |
 
+| Integration | Description |
+| ----------- | ----------- |
 | Database Connection Examples | Description |
 | [ClickHouse](/database_examples/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
 | [Supabase](/database_examples/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
