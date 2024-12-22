@@ -76,7 +76,7 @@ Each Integration below has a folder which contains an example of different imple
 
 ## Getting Started
 
-1. Go into the folder you want to run (we recommend the "Full Example") and read the `README.md` file with instructions.
+1. Go into the folder you want to run (we recommend the "Table Widget Example") and read the `README.md` file with instructions.
 
 2. Run `pip install -r requirements.txt`
 

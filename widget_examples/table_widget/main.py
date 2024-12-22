@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-import pandas as pd
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -36,12 +35,10 @@ def get_widgets():
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
 
-
 @app.get("/chains_table")
 def chains_table():
     """Get current TVL of all chains using Defi LLama"""
-    params = {}
-    response = requests.get("https://api.llama.fi/v2/chains", params=params)
+    response = requests.get("https://api.llama.fi/v2/chains")
 
     if response.status_code == 200:
         return response.json()
