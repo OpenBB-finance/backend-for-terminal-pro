@@ -1,5 +1,6 @@
 fastapi==0.95.2
 uvicorn==0.22.0
-pandas==2.0.1
+pandas==2.0.3
 plotly==5.15.0
 requests==2.31.0
+textwrap

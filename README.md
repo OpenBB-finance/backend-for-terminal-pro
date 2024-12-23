@@ -16,23 +16,26 @@ The Main tenants are:
     ```json
     [
       {
-        "title": "To Kill a Mockingbird",
-        "author": "Harper Lee",
-        "year": 1960,
-        "genre": "Fiction"
+        "ticker": "AAPL",
+        "name": "Apple Inc.",
+        "price": 150.5,
+        "marketCap": 2500000000,
+        "change": 1.25
       },
       {
-        "title": "1984",
-        "author": "George Orwell",
-        "year": 1949,
-        "genre": "Dystopian"
+        "ticker": "GOOGL",
+        "name": "Alphabet Inc.",
+        "price": 2800.75,
+        "marketCap": 1900000000,
+        "change": -0.75
       },
       {
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "year": 1925,
-        "genre": "Classic"
-      }
+        "ticker": "MSFT",
+        "name": "Microsoft Corporation",
+        "price": 300.25,
+        "marketCap": 220000000,
+        "change": 0.98
+      },
     ]
     ```
 
@@ -46,22 +49,34 @@ The Main tenants are:
 
 ## Supported Integrations and Templates
 
-Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Full Example.
+Each Integration below has a folder which contains an example of different implementations - We recommend starting with the Table Widget Example.
 
 | Integration | Description |
 | ----------- | ----------- |
-| [Full Example](/plotly_example/README.md) | A good example of widgets with a graph returned and tables with parameters |
-| [ClickHouse](/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
-| [Supabase](/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
-| [MindsDB](/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
-| [ElasticSearch](/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
-| [ArticDB](/articdb_python/README.md) | Using ArticDB to add data to a widget. |
-| [Snowflake](/snowflake_connector_python/README.md) | Snowflake is a cloud-based data warehousing platform. |
+| [Table Widget](/widget_examples/table_widget) | A simple table widget from a file or endpoint |
+| [Chart Widget](/widget_examples/chart_widget) | How to return a plotly chart or a built in chart |
+| [Markdown Widget](/widget_examples/markdown_widget) | Markdown Widget and example with a parameter |
+| [Metric Widget](/widget_examples/metric_widget) | Showing a single metric |
+
+| Advanced Examples | Description |
+| ----------- | ----------- |
+| [Parameters Widget](/advanced_examples/parameters_example) | Example of setting up widgets with parameters |
+| [Grouping Widgets](/advanced_examples/grouping_widgets) | How to group widgets on the dashboard |
+| [Column and Cell Rendering](/advanced_examples/column_and_cell_rendering) | An example of widgets with custom column and cell rendering |
+
+| Database Connection Examples | Description |
+| ----------- | ----------- |
+| [ClickHouse](/database_examples/clickhouse_python/README.md) | ClickHouse is an open-source column-oriented DBMS. |
+| [Supabase](/database_examples/supabase_python/README.md) | Supabase is an open source Firebase alternative. |
+| [MindsDB](/database_examples/mindsdb_python/README.md) | MindsDB is an open-source AI layer for existing databases. |
+| [ElasticSearch](/database_examples/elasticsearch_python/README.md) | Elasticsearch is a search engine based on the Lucene library. |
+| [ArticDB](/database_examples/articdb_python/README.md) | Using ArticDB to add data to a widget. |
+| [Snowflake](/database_examples/snowflake_connector_python/README.md) | Snowflake is a cloud-based data warehousing platform. |
 
 
 ## Getting Started
 
-1. Go into the folder you want to run (we recommend the "Full Example") and read the `README.md` file with instructions.
+1. Go into the folder you want to run (we recommend the "Table Widget Example") and read the `README.md` file with instructions.
 
 2. Run `pip install -r requirements.txt`
 
@@ -111,16 +126,10 @@ Also note that the key must be unique.
 
 ```jsonc
 {
-  "financial_data_from_supabase": { // must be unique in your widgets.json
-    "name": "Financial data supabase", // required - Name of the Widget
-    "description": "Financial data from supabase", // required - Description of the Widget
-    "endpoint": "financial_data_from_supabase", // required - What endpoint to hit from the main.py file
-    "category": "economy", // optional - what category to show under on the search inside OpenBB Pro
-    "searchCategory": "economy", // optional - what category to show under on the search inside OpenBB Pro
-    "gridData": { // optional - how large you want the widget to be on the dashboard
-      "w": 20,
-      "h": 5
-    }
+  "financial_data": { // must be unique in your widgets.json
+    "name": "Financial data", // required - Name of the Widget
+    "description": "Financial data from the backend", // required - Description of the Widget
+    "endpoint": "financial_data", // required - What endpoint to hit from the main.py file
   }
 }
 ```

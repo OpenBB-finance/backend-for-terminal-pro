@@ -1,0 +1,20 @@
+{
+  "defi_llama_protocol_details": {
+    "name": "Defi Llama Protocol Details",
+    "description": "Details for a given protocol",
+    "category": "Crypto",
+    "type": "markdown",
+    "endpoint": "defi_llama_protocol_details",
+    "gridData": {"w": 20, "h": 9},
+    "source": "Defi Llama",
+    "params": [
+      {
+        "paramName": "protocol_id",
+        "value": "aave",
+        "label": "Protocol",
+        "type": "text",
+        "description": "Defi Llama ID of the protocol"
+      }
+    ]
+  }
+}

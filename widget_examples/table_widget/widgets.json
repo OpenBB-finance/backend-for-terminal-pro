@@ -1,0 +1,7 @@
+{
+  "chains_table": {
+    "name": "Top 100 Chains by TVL",
+    "description": "Get current TVL of all chains using Defi LLama",
+    "endpoint": "chains_table"
+  }
+}
