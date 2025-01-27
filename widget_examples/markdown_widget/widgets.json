@@ -1,22 +1,4 @@
 {
-  "base64_files": {
-    "name": "Base 64 files",
-    "description": "Display base 64 encoded files",
-    "category": "Other",
-    "type": "pdf",
-    "endpoint": "files",
-    "gridData": {"w": 20, "h": 20},
-    "source": "My Files",
-    "params": [
-      {
-        "paramName": "name",
-        "value": "sample.pdf",
-        "label": "Name",
-        "type": "text",
-        "description": "Name of the file"
-      }
-    ]
-  },  
   "defi_llama_protocol_details": {
     "name": "Defi Llama Protocol Details",
     "description": "Details for a given protocol",
