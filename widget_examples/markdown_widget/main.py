@@ -1,3 +1,4 @@
+import base64
 import json
 from pathlib import Path
 from textwrap import dedent
@@ -36,6 +37,24 @@ def get_widgets():
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
 
+@app.get("/files")
+def get_files(name: str):
+    """List all files in the current directory"""
+    with open(ROOT_PATH / name, "rb") as file:
+        file_data = file.read()
+        encoded_data = base64.b64encode(file_data)
+        content = encoded_data.decode("utf-8")
+    return JSONResponse(
+        headers={"Content-Type": "application/json"},
+        content={
+            "data_format": {
+                "data_type": "pdf",
+                "filename": f"{name}",
+            },
+            "content": content
+        }
+    )
+
 ## example of markdown widget 
 @app.get("/defi_llama_protocol_details")
 def defi_llama_protocol_details(protocol_id: str = None):
@@ -72,3 +91,7 @@ def defi_llama_protocol_details(protocol_id: str = None):
         {github_links}
     """)
     return markdown
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", port=5050, reload=True)
