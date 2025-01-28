@@ -1,19 +1,22 @@
 {
-  "base64_files": {
-    "name": "Base 64 files",
-    "description": "Display base 64 encoded files",
+  "my_pdf_files": {
+    "name": "My PDF files",
+    "description": "Display a PDF file",
     "category": "Other",
     "type": "pdf",
     "endpoint": "files",
     "gridData": {"w": 20, "h": 20},
-    "source": "My Files",
     "params": [
       {
         "paramName": "name",
         "value": "sample.pdf",
         "label": "Name",
         "type": "text",
-        "description": "Name of the file"
+        "description": "Name of the file",
+        "options": [
+          {"label": "sample", "value": "sample.pdf"},
+          {"label": "openbb story", "value": "openbb_story.pdf"}
+        ]
       }
     ]
   }
