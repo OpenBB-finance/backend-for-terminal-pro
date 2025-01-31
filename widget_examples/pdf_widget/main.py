@@ -37,9 +37,9 @@ def get_widgets():
         content=json.load((Path(__file__).parent.resolve() / "widgets.json").open())
     )
 
-@app.get("/files")
+@app.get("/files-base64")
 def get_files(name: str):
-    """List all files in the current directory"""
+    """Serve a file through base64 encoding"""
     try:
         with open(ROOT_PATH / name, "rb") as file:
             file_data = file.read()
@@ -55,6 +55,24 @@ def get_files(name: str):
                 "filename": f"{name}",
             },
             "content": content
+        }
+    )
+
+@app.get("/files-url")
+def get_files_url(name: str):
+    """Serve a file through URL"""
+    FILES = {
+        "sample.pdf": "https://pdfobject.com/pdf/sample.pdf",
+        "other-sample.pdf": "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf",
+    }
+    return JSONResponse(
+        headers={"Content-Type": "application/json"},
+        content={
+            "data_format": {
+                "data_type": "pdf",
+                "filename": f"{name}",
+            },
+            "reference": FILES.get(name)
         }
     )
 
