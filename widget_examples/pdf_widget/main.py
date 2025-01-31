@@ -65,6 +65,9 @@ def get_files_url(name: str):
         "sample.pdf": "https://pdfobject.com/pdf/sample.pdf",
         "other-sample.pdf": "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf",
     }
+    file_reference = FILES.get(name)
+    if not file_reference:
+        raise HTTPException(status_code=404, detail="File not found")
     return JSONResponse(
         headers={"Content-Type": "application/json"},
         content={
@@ -72,7 +75,7 @@ def get_files_url(name: str):
                 "data_type": "pdf",
                 "filename": f"{name}",
             },
-            "file_reference": FILES.get(name)
+            "file_reference": file_reference,
         }
     )
 
