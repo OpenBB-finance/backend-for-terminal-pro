@@ -57,8 +57,9 @@ def get_files_base64(name: str):
 def get_files_url(name: str):
     """Serve a file through URL."""
     FILES = {
-        "local-url.pdf": "http://localhost:5050/files-raw?name=other-sample.pdf",
-        "external-url.pdf": "https://pdfobject.com/pdf/sample.pdf",
+        "openbb-story.pdf": "https://openbb-assets.s3.us-east-1.amazonaws.com/pro-file-storage/00060c82-2ceb-4161-b5c0-ebb66a83e8f2.pdf",
+        # Using the local file as AI context only works if this backend is deployed and publicly accessible.
+        "sample.pdf": "http://localhost:5050/files-raw?name=sample.pdf",
     }
     file_reference = FILES.get(name)
     if not file_reference:
@@ -68,7 +69,7 @@ def get_files_url(name: str):
         content={
             "data_format": {
                 "data_type": "pdf",
-                "filename": f"{name}",
+                "filename": name,
             },
             "file_reference": file_reference,
         },

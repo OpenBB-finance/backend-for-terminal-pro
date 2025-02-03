@@ -26,18 +26,18 @@
     "params": [
       {
         "paramName": "name",
-        "value": "local-url.pdf",
+        "value": "openbb-story.pdf",
         "label": "Name",
         "type": "text",
         "description": "Name of the file",
         "options": [
           {
-            "value": "local-url.pdf",
-            "label": "Local URL"
-          },
+            "value": "openbb-story.pdf",
+            "label": "OpenBB Story - External URL"
+          },          
           {
-            "value": "external-url.pdf",
-            "label": "External URL"
+            "value": "sample.pdf",
+            "label": "Sample - Local URL"
           }
         ]
       }
