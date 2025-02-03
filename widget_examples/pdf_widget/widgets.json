@@ -26,17 +26,17 @@
     "params": [
       {
         "paramName": "name",
-        "value": "local-url",
+        "value": "local-url.pdf",
         "label": "Name",
         "type": "text",
         "description": "Name of the file",
         "options": [
           {
-            "value": "local-url",
+            "value": "local-url.pdf",
             "label": "Local URL"
           },
           {
-            "value": "external-url",
+            "value": "external-url.pdf",
             "label": "External URL"
           }
         ]

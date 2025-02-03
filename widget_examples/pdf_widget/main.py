@@ -57,8 +57,8 @@ def get_files_base64(name: str):
 def get_files_url(name: str):
     """Serve a file through URL."""
     FILES = {
-        "local-url": "http://localhost:5050/files-raw?name=other-sample.pdf",
-        "external-url": "https://pdfobject.com/pdf/sample.pdf",
+        "local-url.pdf": "http://localhost:5050/files-raw?name=other-sample.pdf",
+        "external-url.pdf": "https://pdfobject.com/pdf/sample.pdf",
     }
     file_reference = FILES.get(name)
     if not file_reference:
