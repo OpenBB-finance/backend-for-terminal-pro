@@ -46,7 +46,7 @@ def get_files_base64(name: str):
         content={
             "data_format": {
                 "data_type": "pdf",
-                "filename": f"{name}",
+                "filename": name,
             },
             "content": content,
         },
