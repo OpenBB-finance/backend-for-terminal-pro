@@ -57,9 +57,8 @@ def get_files_base64(name: str):
 def get_files_url(name: str):
     """Serve a file through URL."""
     FILES = {
-        "openbb-story.pdf": "https://openbb-assets.s3.us-east-1.amazonaws.com/pro-file-storage/00060c82-2ceb-4161-b5c0-ebb66a83e8f2.pdf",
-        # Using the local file as AI context only works if this backend is deployed and publicly accessible.
-        "sample.pdf": "http://localhost:5050/files-raw?name=sample.pdf",
+        "openbb-story.pdf": "https://openbb-assets.s3.us-east-1.amazonaws.com/testing/openbb_story.pdf",
+        "sample.pdf": "https://openbb-assets.s3.us-east-1.amazonaws.com/testing/sample.pdf",
     }
     file_reference = FILES.get(name)
     if not file_reference:
@@ -74,17 +73,6 @@ def get_files_url(name: str):
             "file_reference": file_reference,
         },
     )
-
-
-@app.get("/files-raw")
-def get_files_raw(name: str):
-    """Example of serving a file from a local URL."""
-    try:
-        return FileResponse(
-            path=ROOT_PATH / name, media_type="application/pdf", filename=name
-        )
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="File not found")
 
 
 if __name__ == "__main__":

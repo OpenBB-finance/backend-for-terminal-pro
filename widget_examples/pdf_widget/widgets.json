@@ -33,11 +33,11 @@
         "options": [
           {
             "value": "openbb-story.pdf",
-            "label": "OpenBB Story - External URL"
+            "label": "OpenBB Story"
           },          
           {
             "value": "sample.pdf",
-            "label": "Sample - Local URL"
+            "label": "Sample"
           }
         ]
       }
