@@ -1,0 +1,51 @@
+{
+  "base64_pdf": {
+    "name": "Base 64 PDF",
+    "description": "Display a PDF file",
+    "category": "Other",
+    "type": "pdf",
+    "endpoint": "files-base64",
+    "gridData": {
+      "w": 20,
+      "h": 20
+    },
+    "params": [
+      {
+        "paramName": "name",
+        "value": "sample.pdf",
+        "label": "Name",
+        "type": "text",
+        "description": "Name of the file"
+      }
+    ]
+  },
+  "url_pdf": {
+    "name": "URL PDF files",
+    "description": "Display a PDF file",
+    "category": "Other",
+    "type": "pdf",
+    "endpoint": "files-url",
+    "gridData": {
+      "w": 20,
+      "h": 20
+    },
+    "params": [
+      {
+        "paramName": "name",
+        "value": "openbb-story.pdf",
+        "label": "Name",
+        "description": "Name of the file",
+        "options": [
+          {
+            "value": "openbb-story.pdf",
+            "label": "OpenBB Story"
+          },
+          {
+            "value": "sample.pdf",
+            "label": "Sample"
+          }
+        ]
+      }
+    ]
+  }
+}
