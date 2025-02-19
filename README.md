@@ -1,8 +1,8 @@
-# Backend examples for OpenBB Pro
+# Backend examples for OpenBB Workspace
 
 ## Introduction
 
-An OpenBB Pro Custom Backend is a versatile way to connect your data to widgets inside OpenBB Pro. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Pro widgets can read and then display any data.
+An OpenBB Workspace Custom Backend is a versatile way to connect your data to widgets inside OpenBB Workspace. Whether hosted internally or externally, this method provides a standardized structure that OpenBB Workspace widgets can read and then display any data.
 
 Note: Most of the examples provided use Python FastAPI due to our familiarity with the library, but the same could be done utilizing different languages.
 
@@ -82,7 +82,7 @@ Each Integration below has a folder which contains an example of different imple
 
 3. Run `uvicorn main:app --port 5050` to start your backend.
 
-4. Create a Custom Backend on OpenBB Pro with the link to your API URL (e.g., <http://localhost:5050>).
+4. Create a Custom Backend on OpenBB Workspace with the link to your API URL (e.g., <http://localhost:5050>).
 
 ## Code explained
 
@@ -90,11 +90,11 @@ Each Integration below has a folder which contains an example of different imple
 
 This file is responsible for running the FastAPI with endpoints that will be consumed by OpenBB Pro.
 
-* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Pro link.
+* Enables cross-origin resource sharing (CORS) and configures it according to the domain where FastAPI is running and the Workspace link.
 
 * Initializes FastAPI with `app = FastAPI()`
 
-* Ensures that there's a `/widgets.json` file that OpenBB Pro can use to configure the widgets configured
+* Ensures that there's a `/widgets.json` file that OpenBB Workspace can use to configure the widgets configured
 
   <details>
       <summary>Endpoint to fetch widgets.json file</summary>
