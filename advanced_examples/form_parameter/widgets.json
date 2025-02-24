@@ -1,0 +1,58 @@
+{
+  "historical_chains_table": {
+    "name": "Chains Historical table example",
+    "description": "Get historical TVL of a chain using Defi LLama",
+    "category": "crypto",
+    "searchCategory": "crypto",
+    "endpoint": "historical_chains",
+    "gridData": {
+      "w": 20,
+      "h": 9
+    },
+    "params": [
+      {
+        "paramName": "form",
+        "description": "Form example",
+        "type": "form",
+        "endpoint": "form-example",
+        "inputParams": [
+          {
+            "paramName": "date",
+            "type": "date",
+            "value": "2024-01-01",
+            "label": "Date",
+            "description": "The date to update the ranked sheet"
+          },
+          {
+            "paramName": "number",
+            "type": "number",
+            "value": 1,
+            "label": "Number",
+            "description": "The number to update the ranked sheet"
+          },
+          {
+            "paramName": "chain",
+            "description": "The chain to get historical TVL",
+            "label": "Chain",
+            "type": "endpoint",
+            "optionsEndpoint": "get_chains_list"
+          },
+          {
+            "paramName": "text",
+            "type": "text",
+            "value": "text",
+            "label": "Text",
+            "description": "The text to update the ranked sheet"
+          },
+          {
+            "paramName": "submit",
+            "type": "button",
+            "value": true,
+            "label": "Submit",
+            "description": "Click to submit the form"
+          }
+        ]
+      }
+    ]
+  }
+}
