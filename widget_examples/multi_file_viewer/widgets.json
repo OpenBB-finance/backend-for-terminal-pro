@@ -1,19 +1,18 @@
 {
   "whitepapers": {
+    "type": "multi_file_viewer",
     "name": "Whitepapers",
     "description": "List of available whitepapers",
-    "category": "Documents",
-    "endpoint": "/random/whitepapers/view-base64",
+    "endpoint": "/random/whitepapers/view-url",
     "gridData": {
       "w": 40,
       "h": 10
     },
-    "type": "multi_file_viewer",
     "params": [
       {
         "type": "endpoint",
         "paramName": "whitepaper",
-        "value": "http://localhost:3000/random/whitepapers",
+        "value": "http://localhost:5011/random/whitepapers",
         "label": "Whitepaper",
         "description": "Whitepaper to display.",
         "optionsEndpoint": "/random/whitepapers",
